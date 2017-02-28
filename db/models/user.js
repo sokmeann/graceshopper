@@ -7,12 +7,20 @@ const Sequelize = require('sequelize')
 const db = require('APP/db')
 
 const User = db.define('users', {
-  name: Sequelize.STRING,
+  firstname: Sequelize.STRING,
+  lastname: Sequelize.STRING,
+  status: {
+    type: Sequelize.ENUM('GUEST', 'REGISTERED'),
+    defaultValue: 'GUEST'
+  },
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
   email: {
     type: Sequelize.STRING,
     validate: {
 			isEmail: true,
-			notEmpty: true,
 		}
   },
 
@@ -22,8 +30,16 @@ const User = db.define('users', {
 }, {
 	indexes: [{fields: ['email'], unique: true}],
   hooks: {
-    beforeCreate: setEmailAndPassword,
-    beforeUpdate: setEmailAndPassword,
+    beforeCreate: (user) => {
+      if (user.status === 'REGISTERED') {
+        return setEmailAndPassword()
+      }
+    },
+    beforeUpdate: (user) => {
+      if (user.status === 'REGISTERED') {
+        return setEmailAndPassword()
+      }
+    }
   },
   instanceMethods: {
     // This method is a Promisified bcrypt.compare
@@ -38,9 +54,14 @@ const User = db.define('users', {
   }
 })
 
+/**
+ * Creates random password for user and ensures password is lowercase
+ * This happens automatically on user creation
+ */
 function setEmailAndPassword(user) {
-  user.email = user.email && user.email.toLowerCase()
-  if (!user.password) return Promise.resolve(user)
+
+  if (user.email) {user.email = user.email && user.email.toLowerCase()}
+  if (!user.password && user.email) return Promise.resolve(user)
 
   return new Promise((resolve, reject) =>
 	  bcrypt.hash(user.get('password'), 10, (err, hash) => {
