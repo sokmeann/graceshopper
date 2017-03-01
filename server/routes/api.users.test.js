@@ -36,5 +36,21 @@ describe('/api/users', () => {
           email: 'eve@interloper.com'
         }))
     )
+
+// Sokmean: code above this line is from bones.
+    it('PUT updates the user information', () =>
+      request(app)
+        .put('/api/users/1')
+        .send({
+          email: 'new_email@update.com'
+        })
+        .expect(200)
+    )
+
+    it('DELETE removes a user from the database', () =>
+      request(app)
+        .delete('/api/users/1')
+        .expect(204)
+    )
   })
 })
