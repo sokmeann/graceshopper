@@ -2,8 +2,6 @@
 node_modules/*
 bower_components
 
-# Ignore package.json because of differences between Windows and Mac
-
 # ...except the symlink to ourselves.
 !node_modules/APP
 
