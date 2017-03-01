@@ -43,7 +43,6 @@ const User = db.define('users', {
       }
     }
   },
-  
   instanceMethods: {
     // This method is a Promisified bcrypt.compare
     authenticate (plaintext) {
