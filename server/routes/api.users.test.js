@@ -2,12 +2,17 @@
 
 const request = require('supertest-as-promised')
 const {expect} = require('chai')
-require('APP/db')
-require('APP/db/models/user')
-const app = require('./start')
+const db = require('APP/db')
+const User = require('APP/db/models/user')
+const app = require('../start')
 
 describe('/api/users', () => {
+  beforeEach('Synchronize and clear database', () => db.sync({force: true}))
   describe('when not logged in', () => {
+    beforeEach('Creates 1 user for test', () => User.create({
+              email: 'old_email@beforeupdate.com',
+              password: '12345'
+            }))
     it('GET /:id fails 401 (Unauthorized)', () =>
       request(app)
         .get(`/api/users/1`)
