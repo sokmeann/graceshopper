@@ -6,11 +6,9 @@ const api = module.exports = require('express').Router() // eslint-disable-line 
 api
   .get('/heartbeat', (req, res) => res.send({ok: true}))
   .use('/auth', require('./auth'))
-  // .use('/users', require('./routes/api.users')) //amend with our own user stuff
-  .use('/users', require('./users'))
   .use('/orders', require('./routes/api.orders'))
-  // .use('/reviews', require('./routes/api.reviews'))
-  // .use('/products', require('./routes/api.products'))
+  .use('/reviews', require('./routes/api.reviews'))
+  .use('/products', require('./routes/api.products'))
 
 
 // No routes matched? 404.
