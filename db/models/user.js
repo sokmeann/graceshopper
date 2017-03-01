@@ -32,18 +32,10 @@ const User = db.define('users', {
 }, {
 	indexes: [{fields: ['email'], unique: true}],
   hooks: {
-    beforeCreate: (user) => {
-      if (user.status === 'REGISTERED') {
-        return setEmailAndPassword()
-      }
-    },
-    beforeUpdate: (user) => {
-      if (user.status === 'REGISTERED') {
-        return setEmailAndPassword()
-      }
-    }
+    beforeCreate: setEmailAndPassword,
+    beforeUpdate: setEmailAndPassword
   },
-  
+
   instanceMethods: {
     // This method is a Promisified bcrypt.compare
     authenticate (plaintext) {
@@ -62,9 +54,8 @@ const User = db.define('users', {
  * This happens automatically on user creation
  */
 function setEmailAndPassword(user) {
-
-  if (user.email) {user.email = user.email && user.email.toLowerCase()}
-  if (!user.password && user.email) return Promise.resolve(user)
+  user.email = user.email && user.email.toLowerCase()
+  if (!user.password) return Promise.resolve(user)
 
   return new Promise((resolve, reject) =>
 	  bcrypt.hash(user.get('password'), 10, (err, hash) => {

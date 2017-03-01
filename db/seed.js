@@ -3,8 +3,8 @@
 const db = require('APP/db')
 
 const seedUsers = () => db.Promise.map([
-  {firstname: 'Some', lastname: 'Guy', email: 'someGuy@example.com', password: '1234'},
-  {firstname: 'Some', lastname: 'Otherguy', email: 'someOtherGuy@example.com', password: '1234'}, {firstname: 'Some', lastname: 'Gal', email: 'someGal@example.com', password: 'smarterthanthat'}, {firstname: 'Some', lastname: 'Othergal', email: 'someOthergal@example.com', password: 'ev3nsm@rter'}
+  {firstname: 'Some', lastname: 'Guy', status: 'REGISTERED', email: 'someGuy@example.com', shippingAddress: '123 Maple Street\nBrooklyn, NY 11218', password: '1234'},
+  {firstname: 'Another', lastname: 'Dude', status: 'REGISTERED', email: 'someOtherGuy@example.com', shippingAddress: '456 Elm Street\nBrooklyn, NY 11221',  password: '1234'}, {firstname: 'Someother', lastname: 'Gal', status: 'REGISTERED', email: 'someGal@example.com', shippingAddress: '50 Sycamore Street\nQueens, NY 11370', password: 'smarterthanthat'}, {firstname: 'Andanother', lastname: 'Lady', status: 'REGISTERED', email: 'someOthergal@example.com', shippingAddress: '5 Hanover Square\nNew York, NY 10004', password: 'ev3nsm@rter'}
 ], user => db.model('users').create(user))
 
 const seedProducts = () => db.Promise.map([
