@@ -35,7 +35,6 @@ const User = db.define('users', {
     beforeCreate: setEmailAndPassword,
     beforeUpdate: setEmailAndPassword
   },
-
   instanceMethods: {
     // This method is a Promisified bcrypt.compare
     authenticate (plaintext) {
