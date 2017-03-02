@@ -10,6 +10,7 @@ import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import userRegistration from './components/UserRegistration'
 import Navbar from './components/Navbar'
+import product from './components/product'
 
 
 render(
@@ -18,6 +19,7 @@ render(
       <Route path="/navbar" component={Navbar} />
       <Route path="/jokes" component={Jokes} />
       <Route path="/userRegistration" component={userRegistration} />
+      <Route path="/product" component={product} />
     </Router>
   </Provider>,
   document.getElementById('main')

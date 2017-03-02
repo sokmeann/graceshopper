@@ -26,26 +26,26 @@ class userRegistration extends Component {
   }
   render(){
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h2>Create Account</h2>
+      <form id="registration" onSubmit={this.handleSubmit}>
+        <h2><i className="fa fa-user" /> Create Account</h2>
         <label>First Name</label>
         <br />
-        <input name="firstName" onChange={this.handleChange} />
+        <input id="firstName" onChange={this.handleChange} />
         <br />
         <br />
         <label>Last Name</label>
         <br />
-        <input name="lastName" onChange={this.handleChange} />
+        <input id="lastName" onChange={this.handleChange} />
         <br />
         <br />
         <label>Email</label>
         <br />
-        <input name="email" onChange={this.handleChange} />
+        <input id="email" onChange={this.handleChange} />
         <br />
         <br />
         <label>Password</label>
         <br />
-        <input name="password" onChange={this.handleChange} />
+        <input id="password" onChange={this.handleChange} />
         <br />
         <br />
         <button>Create Account</button>
