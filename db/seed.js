@@ -1,5 +1,5 @@
-'use strict'; // eslint-disable-line semi
 // eslint-disable camelcase
+'use strict'; // eslint-disable-line semi
 
 const db = require('APP/db')
 

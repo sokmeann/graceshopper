@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import Reviews from './Reviews'
-import PriceQtyAddtoCart from './PriceQtyAddtoCart'
+import Reviews from '../components/Reviews'
+import QtyAddtoCart from '../components/QtyAddtoCart'
 
 class ProductContainer extends Component {
   constructor(props){
     super(props)
-    console.log(props.selectedProduct)
   }
 
   render(){
@@ -25,7 +24,8 @@ class ProductContainer extends Component {
         <p>Product Description Goes Here</p>
         <br />
         <br />
-        <PriceQtyAddtoCart />
+        <h4>Price: $SomePrice</h4>
+        <QtyAddtoCart />
         <br />
         <br />
         <Reviews />

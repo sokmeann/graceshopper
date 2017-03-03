@@ -2,15 +2,15 @@
 import React from 'react'
 import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
 import {render} from 'react-dom'
-import {connect, Provider} from 'react-redux'
+import {Provider} from 'react-redux'
 
 import store from './store'
 import Jokes from './components/Jokes'
 import Login from './components/Login'
-import WhoAmI from './components/WhoAmI'
+// import WhoAmI from './components/WhoAmI'
 import userRegistration from './components/UserRegistration'
 import Navbar from './components/Navbar'
-import product from './components/ProductContainer'
+import product from './containers/ProductContainer'
 
 
 render(
