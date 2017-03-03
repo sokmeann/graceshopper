@@ -2,16 +2,16 @@
 import React from 'react'
 import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
 import {render} from 'react-dom'
-import {connect, Provider} from 'react-redux'
+import {Provider} from 'react-redux'
 
 import store from './store'
 import Jokes from './components/Jokes'
 import Login from './components/Login'
-import WhoAmI from './components/WhoAmI'
-import userRegistration from './components/UserRegistration'
+// import WhoAmI from './components/WhoAmI'
 import Navbar from './components/Navbar'
-import product from './components/ProductContainer'
-
+import Product from './containers/ProductContainer'
+import UserPageContainer from './containers/UserPageContainer'
+import UserRegistration from './components/UserRegistration'
 
 render(
   <Provider store={store}>
@@ -21,9 +21,10 @@ render(
       </Route>
       <Route path="/navbar" component={Navbar} />
       <Route path="/jokes" component={Jokes} />
-      <Route path="/userRegistration" component={userRegistration} />
-      <Route path="/product" component={product} />
+      <Route path="/userRegistration" component={UserRegistration} />
+      <Route path="/product" component={Product} />
       <Route path="/login" component={Login} />
+      <Route path="/user" component={UserPageContainer} />
     </Router>
   </Provider>,
   document.getElementById('main')

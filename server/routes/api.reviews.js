@@ -11,29 +11,29 @@ router
     let productId = req.params.productId
     Review.findAll({
       where: {
-        product_id: productId
+        product_id: productId //eslint-disable-line camelcase
       }
     })
     .then((reviews) => {
-      return res.json(reviews)
+      res.json(reviews)
     })
     .catch(next)
   })
 
-  .get('/user/:id', (req, res, next) => {
+  .get('/user/:userId', (req, res, next) => {
     let userId = req.params.userId
     Review.findAll({
       where: {
-        user_id: userId
+        user_id: userId //eslint-disable-line camelcase
       }
     })
     .then((reviews) => {
-      return res.json(reviews)
+      res.json(reviews)
     })
     .catch(next)
   })
 
-  .post('user/:id/product/:id', (req, res, next) => {
+  .post('user/:userId/product/:productId', (req, res, next) => {
     let userId = req.params.userId
     let productId = req.params.productId
     return Review.create(req.body)
