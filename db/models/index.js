@@ -16,6 +16,7 @@ User.hasOne(OAuth)
 
 Order.belongsToMany(Product, {through: OrderProduct})
 Product.hasMany(Review)
+Review.belongsTo(Product)
 Review.belongsTo(User)
 User.hasMany(Review)
 User.hasMany(Order)
