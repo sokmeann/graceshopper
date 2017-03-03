@@ -24,15 +24,15 @@ class Navbar extends Component {
   render () {
     return (
       <div className="navbar col-lg-12">
-        <div className="col-lg-3">Logo</div>
-        <div className="col-lg-2">hi</div>
-        <div className="col-lg-4">
+        <div className="logo col-lg-4">DRYgoods</div>
+        <div className="search col-lg-4">
           <form onSubmit={this.handleSubmit}>
-            <input id="searchBar" name="search" onChange={this.handleChange}/>
+            <input id="searchBar" name="search" onChange={this.handleChange} />
+            <i className="fa fa-search fa-lg" />
           </form>
         </div>
-        <div className="col-lg-1">Cart</div>
-        <div className="col-lg-2">Login</div>
+        <div className="cart col-lg-1"><i className="fa fa-shopping-cart fa-lg" /> Cart</div>
+        <div className="login col-lg-2"><i className="fa fa-user fa-lg" /> Login</div>
       </div>
     )
   }
