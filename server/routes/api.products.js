@@ -24,13 +24,14 @@ module.exports = require('express').Router() // eslint-disable-line new-cap
     })
     .then(products => res.json(products))
     .catch(next))
-  .delete('/:id', (req, res, next) => 
+  .delete('/:id', (req, res, next) =>
     Product.destroy({
       where: {id: req.params.id}
     })
-    .then(res.send(204))
+    .then(res.sendStatus(204))
     .catch(next))
-  .put('/:id/', (req, res, next) => 
+  .put('/:id/', (req, res, next) =>
     Product.findById(req.params.id)
-    .then(product => product.updateAttributes(req.body))
+    .then(product => product.update(req.body))
+    .then(res.sendStatus(200))
     .catch(next))
