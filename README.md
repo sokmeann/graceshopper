@@ -1,4 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/sokmeann/graceshopper.png?label=ready&title=Ready)](https://waffle.io/sokmeann/graceshopper)
+[![CodeShip Status](https://app.codeship.com/projects/41dcba10-e277-0134-2b7e-362663a9fe4c/status?branch=master)
 # Hi, I'm bones
 
 I'm a happy little skeleton. You can clone me to use as a starter on your projects!
