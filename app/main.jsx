@@ -10,6 +10,7 @@ import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import userRegistration from './components/UserRegistration'
 import Navbar from './components/Navbar'
+import UserPageContainer from './containers/UserPageContainer'
 import product from './components/ProductContainer'
 
 
@@ -24,6 +25,7 @@ render(
       <Route path="/userRegistration" component={userRegistration} />
       <Route path="/product" component={product} />
       <Route path="/login" component={Login} />
+      <Route path="/user" component={UserPageContainer} />
     </Router>
   </Provider>,
   document.getElementById('main')
