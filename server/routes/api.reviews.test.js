@@ -9,47 +9,43 @@ const User = require('APP/db/models/user')
 const Product = require('APP/db/models/product')
 
 describe('Reviews', () => {
-  before('wait for the db', () => db.didSync)
+  // before('wait for the db', () => db.didSync)
   beforeEach('Synchronize and clear database', () => db.sync({force: true}))
 
   describe('/api', function () {
+    let globalReview
 
     beforeEach(() => {
-        User.create({
-          email: 'aUser@email.com',
-          password: '12345'
+      return User.create({
+        email: 'aUser@email.com',
+        password: '12345'
+      })
+      .then(() => {
+        Product.create({
+          title: 'aProduct',
+          category: 'objects',
+          brand: 'aBrand',
+          description: 'about the product',
+          currentPrice: '100.00'
         })
-        .then((u) => {
-          let user = u
-        })
       })
-
-    beforeEach(() => {
-      Product.create({
-        title: 'aProduct',
-        category: 'objects',
-        brand: 'aBrand',
-        description: 'about the product',
-        currentPrice: '100.00'
-      })
-      .then((p) => {
-        let product = p
-      })
-    })
-
-    beforeEach(() => {
-        Review.create({
+      .then(() => {
+        return Review.create({
           title: 'My Review',
           description: 'This is my review of a product',
           rating: 4
         })
         .then((review) => {
-          return review.setUser(1)
+          const revUser = review.setUser(1)
+          const revProduct = review.setProduct(1)
+          return Promise.all([revUser, revProduct])
         })
         .then((review) => {
-          return review.setProduct(1)
+        globalReview = review[0]
         })
       })
+      .catch(console.error)
+    })
 
     describe('/reviews', () => {
 
@@ -58,10 +54,54 @@ describe('Reviews', () => {
         .expect(200)
         .end(function (err, res) {
           if (err) return done(err)
-          expect(res.body.title).to.equal(review.title)
+          expect(res.body[0].title).to.equal(globalReview.title)
           done()
         })
       })
+
+      it('GET by user', (done) => {
+        request(app).get('/api/reviews/user/1')
+        .expect(200)
+        .end(function (err, res) {
+          if (err) return done(err)
+          expect(res.body[0].title).to.equal(globalReview.title)
+          done()
+        })
+      })
+
+      it('POST one', (done) => {
+        request(app).post('/api/reviews/user/1/product/1')
+        .send({
+          title: 'My Second Review',
+          description: 'This is my second review of the same product',
+          rating: 1
+        })
+        .then((res) => {
+          expect(201)
+          const createdReview = res.json
+          return Review.findById(createdReview.id)
+        })
+        .then((foundNewReview) => {
+          expect(foundNewReview.title).to.equal('My Second Review')
+        })
+        .catch(done)
+      })
+
+      it('DELETE one Review', (done) => {
+          request(app).delete('/api/reviews/1')
+          .expect(204)
+          .end((err, res) => {
+            if (err) return done(err)
+            return Review.findById(1)
+            .then((review) => {
+              expect(review).to.be.null // eslint-disable-line no-unused-expressions
+              done()
+            })
+            .catch(done)
+          })
+        })
+
     })
+
   })
 })
