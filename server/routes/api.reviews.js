@@ -11,7 +11,7 @@ router
     let productId = req.params.productId
     Review.findAll({
       where: {
-        product_id: productId
+        product_id: productId //eslint-disable-line camelcase
       }
     })
     .then((reviews) => {
@@ -24,7 +24,7 @@ router
     let userId = req.params.userId
     Review.findAll({
       where: {
-        user_id: userId
+        user_id: userId //eslint-disable-line camelcase
       }
     })
     .then((reviews) => {
