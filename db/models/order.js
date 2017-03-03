@@ -15,7 +15,7 @@ const Order = db.define('order', {
   }
 }, {
   getterMethods: {
-    getOrderStatus: () => {
+    status: function() {
       if (this.dateCompleted) {return 'complete'}
       if (this.dateCancelled) {return 'cancelled'}
       if (this.dateProcessing) {return 'processing'}
