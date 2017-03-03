@@ -11,6 +11,7 @@ import Login from './components/Login'
 import Navbar from './components/Navbar'
 import Product from './containers/ProductContainer'
 import UserPageContainer from './containers/UserPageContainer'
+import UserRegistration from './components/UserRegistration'
 
 render(
   <Provider store={store}>
@@ -20,8 +21,8 @@ render(
       </Route>
       <Route path="/navbar" component={Navbar} />
       <Route path="/jokes" component={Jokes} />
-      <Route path="/userRegistration" component={userRegistration} />
-      <Route path="/product" component={product} />
+      <Route path="/userRegistration" component={UserRegistration} />
+      <Route path="/product" component={Product} />
       <Route path="/login" component={Login} />
       <Route path="/user" component={UserPageContainer} />
     </Router>

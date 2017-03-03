@@ -43,8 +43,7 @@ export const findReviewsByProduct = (prodId) => (
   dispatch =>
     axios.get(`/api/reviews/product/${prodId}`)
       .then(res => res.data)
-      .then(reviews => dispatch(reviewsFetched(reviews))
-      })
+      .then(reviews => dispatch(reviewsFetched(reviews)))
       .catch(() => dispatch(reviewsFetched(null)))
 )
 
@@ -64,7 +63,5 @@ export const fetchProduct = (prodId) => (
       })
       .catch(console.error)
 )
-
-
 
 export default reducer
