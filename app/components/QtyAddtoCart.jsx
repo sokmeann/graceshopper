@@ -1,11 +1,12 @@
 import React from 'react'
 
-const PriceQtyAddtoCart = () => (
+const QtyAddtoCart = () => (
   <div>
-    <h4>Price: $SomePrice</h4>
     <input id="qtyselector" type="number" min="1" />
     <button id="addtocartbtn"><i className="fa fa-shopping-cart" /> Add to cart </button>
+    <br />
+    <br />
   </div>
 )
 
-export default PriceQtyAddtoCart
+export default QtyAddtoCart

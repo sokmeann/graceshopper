@@ -2,17 +2,15 @@
 import React from 'react'
 import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
 import {render} from 'react-dom'
-import {connect, Provider} from 'react-redux'
+import {Provider} from 'react-redux'
 
 import store from './store'
 import Jokes from './components/Jokes'
 import Login from './components/Login'
-import WhoAmI from './components/WhoAmI'
-import userRegistration from './components/UserRegistration'
+// import WhoAmI from './components/WhoAmI'
 import Navbar from './components/Navbar'
+import Product from './containers/ProductContainer'
 import UserPageContainer from './containers/UserPageContainer'
-import product from './components/ProductContainer'
-
 
 render(
   <Provider store={store}>
