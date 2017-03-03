@@ -8,10 +8,9 @@ require('APP/server/routes/api.products')
 const app = require('../start')
 
 
-
 describe('/api/products', () => {
 
-  let testProduct;
+  let testProduct
 
   const newProduct = {
     title: 'Test Product',
@@ -24,19 +23,23 @@ describe('/api/products', () => {
     quantity: 100
   }
 
-  beforeEach('Synchronize and clear database', () => 
+  const otherNewProduct = {
+    title: 'Test Product 2',
+    category: 'Test Category',
+    brand: 'Test Brand',
+    description: 'This is another test product',
+    currentPrice: 101.00,
+    priceHistory: [0.00, 1.00, 10.00],
+    imgUrls: ['placehold.it/50x50', 'lorempixel.com/50/50'],
+    quantity: 100
+  }
+
+  beforeEach('Synchronize and clear database', () =>
     db.sync({force: true})
     .then(() => Product.create(newProduct))
     .then(createdProduct => {testProduct = createdProduct})
     .catch(console.error)
   )
-
-  beforeEach('Create a new product to test routes against', () => {
-    request(app)
-    .post('/api/products')
-    .send(newProduct)
-  })
-
 
   describe('GET / ', ()  => {
 
@@ -60,14 +63,18 @@ describe('/api/products', () => {
   })
 
   describe('POST / ', () => {
-    
+
     it('creates a product', () =>
       request(app)
       .post('/api/products')
-      .send(newProduct)
+      .send(otherNewProduct)
       .expect(201)
-    )   
-  }) 
+      .then(res => {
+        const product = res.body
+        expect(product.title).to.equal(otherNewProduct.title)
+      })
+    )
+  })
 
   describe('GET /:id ', () => {
 
@@ -85,14 +92,10 @@ describe('/api/products', () => {
           expect(product.imgUrls).to.eql(['placehold.it/50x50', 'lorempixel.com/50/50'])
           expect(product.quantity).to.equal(100)
       })
-    )    
+    )
   })
 
-
-
-})
-
-  // WE SHOULD DECIDE WHAT POSTING A NEW PRODUCT SHOULD // DO FOR ADMIN 
+  // WE SHOULD DECIDE WHAT POSTING A NEW PRODUCT SHOULD // DO FOR ADMIN
   // it('POST redirects to the user it just made', () =>
   //   request(app)
   //     .post('/api/users')
@@ -105,4 +108,52 @@ describe('/api/products', () => {
   //       email: 'eve@interloper.com'
   //     }))
   // )
+
+  describe('GET /category/:categoryName ', () => {
+
+    beforeEach('add another Test Category product', () =>
+      db.sync()
+      .then(() => Product.create(otherNewProduct))
+      .catch(console.error)
+    )
+
+    it('gets all products by category', () =>
+      request(app)
+      .get('/api/products/category/Test Category')
+      .expect(200)
+      .then(res => {
+        expect(res.body.length).to.equal(2)
+      })
+    )
+  })
+
+  describe('DELETE /:id', () => {
+
+    it('deletes a product by id', () =>
+      request(app)
+      .delete('/api/products/1')
+      .then( () => Product.findAll({where: {id: 1} }))
+      .then(res => expect(res).to.eql([]))
+    )
+  })
+
+  describe('PUT /:id', () => {
+
+    beforeEach('string', () =>
+      request(app)
+      .put('/api/products/1')
+      .send({title: 'Tested Product'})
+    )
+
+    it('updates a product by id', () =>
+
+      request(app)
+      .get('/api/products/1')
+      .then(res => expect(res.body.title).to.eql('Tested Product'))
+      .done()
+    )
+  })
+
+
+})
 
