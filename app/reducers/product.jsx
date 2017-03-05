@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
       newState.reviews = action.reviews
     break
     case SELECT_PRODUCT:
-      newState.selectedProduct = action.selectedProduct
+      newState.selectedProduct = action.selectedProd
     break
     default:
       return state

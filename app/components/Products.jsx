@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 
-export default function ProductsList (props) {
+const ProductsList = (props) => {
 
   const products = props.products
 
@@ -9,16 +9,16 @@ export default function ProductsList (props) {
     <div id="products">
       <div className="productList">
       {
-        Object.keys(products).map(product => {
+        products && Object.keys(products).map(product => {
           return (
-            <div className="product" key={product}>
-              <Link to={`/products/category/${categoryName}`}>
+            <div className="product" key={ product.id }>
+              <Link to={`/products/${product.id}`}>
                 <img src="http://placehold.it/200x200" />
-                <div className="productName">
-                  <h5>product name</h5>
-                  <h6>price: $price</h6>
-                </div>
               </Link>
+                <div className="productName">
+                  <h5>{ product.title }</h5>
+                  <h6>`price: $${product.currentPrice}`</h6>
+                </div>
             </div>
           )
         })
@@ -27,3 +27,5 @@ export default function ProductsList (props) {
     </div>
   )
 }
+
+export default ProductsList
