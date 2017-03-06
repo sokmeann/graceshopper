@@ -12,8 +12,12 @@ module.exports = require('express').Router() // eslint-disable-line new-cap
     Product.create(req.body)
     .then(product => res.status(201).json(product))
     .catch(next))
-  .get('/:id', (req, res, next) =>
-    Product.findById(req.params.id)
+  .get('/:productName', (req, res, next) =>
+    Product.findOne({
+      where: {
+        title: req.params.productName
+      }
+    })
     .then(product => res.json(product))
     .catch(next))
   .get('/category/:categoryName', (req, res, next) =>
