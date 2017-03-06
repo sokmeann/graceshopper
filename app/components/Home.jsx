@@ -1,13 +1,16 @@
 import React from 'react'
 
-import Navbar from '../containers/NavbarContainer'
+import NavbarContainer from '../containers/NavbarContainer'
 import Footer from './Footer'
 
-const Home = () => {
+const Home = ({children}) => {
   return (
     <div id="home">
       <div className="navbar">
-        <Navbar />
+        <NavbarContainer />
+      </div>
+      <div className="col-xs-10">
+        { children }
       </div>
       <div className="footer">
         <Footer />

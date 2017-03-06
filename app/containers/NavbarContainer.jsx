@@ -2,14 +2,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router';
 
-import SearchBar from '../SearchBar'
-import Products from '../Products'
+import SearchBar from '../components/SearchBar'
+import Products from '../components/Products'
+
+const fakeProducts = [{id: 1, title: 'Chair'}, {id: 2, title: 'Vase'}]
 
 // get products from state to match with input in search
 const mapStateToProps = (state) => {
   const products = state.products
   return {
-    products: products.title
+    products: fakeProducts
   }
 }
 
@@ -39,7 +41,7 @@ class Navbar extends Component {
 
     return (
       <div className="navbar col-lg-12">
-        <Link className="logo col-lg-4" to={'/'}>DRYgoods</Link>
+        <Link className="logo col-lg-4" to={'/Home'}>DRYgoods</Link>
         <div>
           <SearchBar handleChange={this.handleChange} search={this.state.search} />
           <Products products={searchedProducts} />
