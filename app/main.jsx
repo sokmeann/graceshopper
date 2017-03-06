@@ -9,7 +9,7 @@ import store from './store'
 import Jokes from './components/Jokes'
 import Login from './components/Login'
 // import WhoAmI from './components/WhoAmI'
-import Home from './components/Home'
+import Home from './containers/Home'
 import NavbarContainer from './containers/NavbarContainer'
 import UserPageContainer from './containers/UserPageContainer'
 import ProductsContainer from './containers/ProductsContainer'
@@ -66,12 +66,12 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Home} onEnter={onHomeEnter}>
-        <IndexRedirect to="/category" />  
+        <IndexRedirect to="/category" />
         <Route path="/test" component={CategoriesGrid} />
         <Route path="/userRegistration" component={UserRegistration} />
-        <Route path="/products/:productName" component={ProductContainer} onEnter={onProductEnter}/>
+        <Route path="/products/:productName" component={ProductContainer} onEnter={onProductEnter} />
         <Route path="/category" component={CategoriesContainer} />
-        <Route path="/category/:categoryName" component={ProductsContainer} onEnter={onCategoryEnter}/>
+        <Route path="/category/:categoryName" component={ProductsContainer} onEnter={onCategoryEnter} />
         <Route path="/user" component={UserPageContainer} />
         {/*<Route path="/cart" component={CartContainer} onEnter={onCartEnter} />*/}
     </Route>
