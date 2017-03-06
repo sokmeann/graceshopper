@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import NavbarContainer from '../containers/NavbarContainer'
-import Footer from './Footer'
+import Footer from '../components/Footer'
 
 class Home extends Component {
   render() {
