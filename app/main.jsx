@@ -18,7 +18,7 @@ import UserRegistration from './components/UserRegistration'
 import CategoriesGrid from './components/CategoriesGrid'
 import CategoriesContainer from './containers/CategoriesContainer'
 
-import {receiveProducts} from './reducers/products'
+import {receiveProducts, fetchProductsByCategory} from './reducers/products'
 import {setGuest} from './reducers/auth'
 
 import { fetchProducts } from './reducers/products' // duplicate for fetching products. need to resolve.
@@ -43,6 +43,12 @@ const onHomeEnter = () => {
   .catch(console.error('no products!'))
 }
 
+const onCategoryEnter = (nextRouterState) => {
+  console.log("ENTERING CATEGORY");
+  store.dispatch(
+    fetchProductsByCategory(nextRouterState.params.categoryName)
+  )
+}
 // const onCartEnter = () => {
 //   const userId = 1
 //   return axios.get('api/orders/userId/products')
@@ -57,11 +63,12 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Home} onEnter={onHomeEnter}>
+        <IndexRedirect to="/category" />  
         <Route path="/test" component={CategoriesGrid} />
         <Route path="/userRegistration" component={UserRegistration} />
         <Route path="/products/:productId" component={Product} />
         <Route path="/category" component={CategoriesContainer} />
-        <Route path="/category/products" component={Products} />
+        <Route path="/category/:categoryName" component={Products} onEnter={onCategoryEnter}/>
         <Route path="/user" component={UserPageContainer} />
         {/*<Route path="/cart" component={CartContainer} onEnter={onCartEnter} />*/}
     </Route>

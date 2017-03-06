@@ -38,7 +38,7 @@ export const selectProductsByCategory = selectedProducts => ({
 //// DISPATCH(ACTION) ////
 export const fetchProductsByCategory = categoryName => {
   return dispatch => {
-    axios.get(`/api/products/categories/${categoryName}`)
+    axios.get(`/api/products/category/${categoryName}`)
       .then(products => {
         dispatch(selectProductsByCategory(products.data))
       })
