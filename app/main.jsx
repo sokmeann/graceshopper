@@ -15,12 +15,19 @@ import Product from './containers/ProductContainer'
 import UserPageContainer from './containers/UserPageContainer'
 import Products from './components/Products'
 import UserRegistration from './components/UserRegistration'
+import CategoriesGrid from './components/CategoriesGrid'
 import CategoriesContainer from './containers/CategoriesContainer'
+
 import {receiveProducts} from './reducers/products'
 import {setGuest} from './reducers/auth'
 
+import { fetchProducts } from './reducers/products' // duplicate for fetching products. need to resolve.
+
 //get all products
-const onHomeEnter = (req) => {
+const onHomeEnter = () => {
+
+  store.dispatch(fetchProducts)
+
   // Placeholder function, Silvia to update this once the products are served
   const products = axios.get('api/products')
   const user = axios.get('api/users/sessionCheck')
@@ -50,18 +57,15 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Home} onEnter={onHomeEnter}>
-        <IndexRedirect to="/navbar" />
-        <Route path="/navbar" component={NavbarContainer} />
-        <Route path="/jokes" component={Jokes} />
+        <Route path="/test" component={CategoriesGrid} />
         <Route path="/userRegistration" component={UserRegistration} />
-        <Route path="/product" component={Product} />
         <Route path="/products/:productId" component={Product} />
         <Route path="/category" component={CategoriesContainer} />
-        <Route path="category/products" component={Products} />
-        <Route path="/login" component={Login} />
+        <Route path="/category/products" component={Products} />
         <Route path="/user" component={UserPageContainer} />
         {/*<Route path="/cart" component={CartContainer} onEnter={onCartEnter} />*/}
     </Route>
+    <Route path="/product" component={Product} />
     </Router>
   </Provider>,
   document.getElementById('main')
