@@ -9,7 +9,7 @@ import store from './store'
 import Jokes from './components/Jokes'
 import Login from './components/Login'
 // import WhoAmI from './components/WhoAmI'
-import Home from './components/Home'
+import Home from './containers/Home'
 import NavbarContainer from './containers/NavbarContainer'
 import Product from './containers/ProductContainer'
 import UserPageContainer from './containers/UserPageContainer'
@@ -56,16 +56,15 @@ const onHomeEnter = () => {
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={Home} onEnter={onHomeEnter}>
-        <Route path="/test" component={CategoriesGrid} />
-        <Route path="/userRegistration" component={UserRegistration} />
-        <Route path="/products/:productId" component={Product} />
-        <Route path="/category" component={CategoriesContainer} />
-        <Route path="/category/products" component={Products} />
-        <Route path="/user" component={UserPageContainer} />
-        {/*<Route path="/cart" component={CartContainer} onEnter={onCartEnter} />*/}
-    </Route>
-    <Route path="/product" component={Product} />
+      <Route path="/" component={Home} onEnter={onHomeEnter} />
+      {/*<Route path="/cart" component={CartContainer} onEnter={onCartEnter} />*/}
+      <Route path="/test" component={CategoriesGrid} />
+      <Route path="/userRegistration" component={UserRegistration} />
+      <Route path="/products/:productId" component={Product} />
+      <Route path="/category" component={CategoriesContainer} />
+      <Route path="/category/products" component={Products} />
+      <Route path="/user" component={UserPageContainer} />
+      <Route path="/product" component={Product} />
     </Router>
   </Provider>,
   document.getElementById('main')

@@ -1,67 +1,5 @@
-//SASS Variables
-$small-breakpoint: 576px;
-$medium-breakpoint: 768px;
-$large-breakpoint: 992px;
-$xlarge-breakpoint: 1200px;
-
-//func
-@media (min-width: 0px) {
-  @for $i from 1 through 12 {
-    .col-xs-#{$i}{
-      width: (100% / 12) * $i;
-      float: left;
-      padding: 0px 10px 0px 10px;
-    }
-  }
-  .container {
-    max-width: auto;
-    width: 100%;
-  }
-}
-@media (min-width: $small-breakpoint){
-  @for $i from 1 through 12 {
-    .col-sm-#{$i}{
-      width: (100% / 12) * $i;
-      float: left;
-      padding: 0px 10px 0px 10px;
-    }
-  }
-  .container {
-    max-width: 750px;
-    width: 100%;
-  }
-}
-@media (min-width: $medium-breakpoint){
-  @for $i from 1 through 12 {
-    .col-md-#{$i}{
-      width: (100% / 12) * $i;
-      float: left;
-      padding: 0px 10px 0px 10px;
-    }
-  }
-  .container {
-    max-width: 970px;
-    width: 100%;
-  }
-}
-@media (min-width: $large-breakpoint){
-  @for $i from 1 through 12 {
-    .col-lg-#{$i}{
-      width: (100% / 12) * $i;
-      float: left;
-      padding: 0px 10px 0px 10px;
-    }
-  }
-  .container {
-    max-width: 1170px;
-    width: 100%;
-  }
-}
-
 .navbar {
-  background-color: #b2ebff;
-  width: 100%;
-  height: 80px;
+  margin-bottom: 0px;
 }
 
 body {
@@ -69,26 +7,26 @@ body {
   margin: 0;
 }
 
-.navbar {
-  .logo {
-    font-size: 25px;
-    font-weight: bold;
-    padding-top: 25px;
-  }
-  .search {
-    padding-top: 25px
-  }
-  .cart {
-    font-size: 18px;
-    font-weight: bold;
-    padding-top: 25px
-  }
-  .login {
-    font-size: 18px;
-    font-weight: bold;
-    padding-top: 25px
-  }
-}
+// .navbar {
+//   .logo {
+//     font-size: 25px;
+//     font-weight: bold;
+//     padding-top: 25px;
+//   }
+//   .search {
+//     padding-top: 25px
+//   }
+//   .cart {
+//     font-size: 18px;
+//     font-weight: bold;
+//     padding-top: 25px
+//   }
+//   .login {
+//     font-size: 18px;
+//     font-weight: bold;
+//     padding-top: 25px
+//   }
+// }
 
 #product {
   padding: 30px;
@@ -129,9 +67,10 @@ body {
   }
 }
 
-#registration {
+form#registration {
   padding: 30px;
   font-family: 'Arial';
+  align-items: center;
 }
 
 #searchBar {
