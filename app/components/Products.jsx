@@ -9,7 +9,7 @@ const ProductsList = (props) => {
     <div id="products">
       <div className="productList">
       {
-        products && Object.keys(products).map(product => {
+        products && products.map(product => {
           return (
             <div className="product" key={ product.id }>
               <Link to={`/products/${product.id}`}>
@@ -27,5 +27,6 @@ const ProductsList = (props) => {
     </div>
   )
 }
+
 
 export default ProductsList

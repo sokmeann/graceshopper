@@ -20,14 +20,15 @@ import receiveProducts from './reducers/products'
 
 //get all products
 const onHomeEnter = () => {
-  return axios.get('/api/products')
-  .then((products) => {
-    products.map(product => product.data)
-  })
-  .then(productList => {
-    store.dispatch(receiveProducts(productList))
-  })
-  .catch(console.error('no products!'))
+  // Placeholder function, Silvia to update this once the products are served
+  // return axios.get('/api/products')
+  // .then((products) => {
+  //   products.map(product => product.data)
+  // })
+  // .then(productList => {
+  //   store.dispatch(receiveProducts(productList))
+  // })
+  // .catch(console.error('no products!'))
 }
 
 //needs to be cleaned up

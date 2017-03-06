@@ -26,7 +26,7 @@ export default (state = initialCartState, action) => {
       newState.receiveProducts = action.products
       break
     case ADD_ITEM:
-      newState.
+      // to-be defined
       break
     case REMOVE_ITEM:
       break
