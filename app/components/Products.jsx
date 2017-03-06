@@ -17,7 +17,7 @@ const ProductsList = (props) => {
               </Link>
                 <div className="productName">
                   <h5>{ product.title }</h5>
-                  <h6>`price: $${product.currentPrice}`</h6>
+                  <h6>price: ${`${product.currentPrice}`}</h6>
                 </div>
             </div>
           )
