@@ -47,6 +47,7 @@ render(
         <Route path="/category/products" component={Products} />
         <Route path="/user" component={UserPageContainer} />
     </Route>
+    <Route path="/product" component={Product} />
     </Router>
   </Provider>,
   document.getElementById('main')
