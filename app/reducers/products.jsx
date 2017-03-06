@@ -4,7 +4,8 @@ const SELECT_PRODUCTS = 'SELECT_PRODUCTS'
 const RECIEVE_PRODUCTS = 'RECIEVE_PRODUCTS'
 
 const initialProductsState = {
-  selectedProducts: null
+  selectedProducts: null,
+  products: null
 }
 
 export default (state = initialProductsState, action) => {
@@ -13,10 +14,10 @@ export default (state = initialProductsState, action) => {
 
   switch (action.type) {
     case SELECT_PRODUCTS:
-      newState.categoryProducts = action.categoryProducts
+      newState.selectedProducts = action.categoryProducts
       break
     case RECIEVE_PRODUCTS:
-      newState.receiveProducts = action.products
+      newState.products = action.products
       break
     default:
       return state
