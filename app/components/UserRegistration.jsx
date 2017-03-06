@@ -27,6 +27,7 @@ class userRegistration extends Component {
   render(){
     return (
       <form id="registration" onSubmit={this.handleSubmit}>
+        <img id="logo" src="/images/DRYgoods.png" width="350" />
         <h2><i className="fa fa-user" /> Create Account</h2>
         <label>First Name</label>
         <br />
