@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 
-export default function CategoriesGrid (props) {
+const CategoriesGrid = (props) => {
 
   const categories = props.categories
 
@@ -12,11 +12,11 @@ export default function CategoriesGrid (props) {
       {
         Object.keys(categories).map(category => {
           return (
-            <div className="category" key={category}>
-              <Link to={`/`}>
+            <div className="category" key={category.category}>
+              <Link to={`/category/products`}>
                 <img src="http://placehold.it/250x250" />
                 <div className="categoryName">
-                  <h5>category name</h5>
+                  <h5>{ category.category }</h5>
                 </div>
               </Link>
             </div>
@@ -27,3 +27,5 @@ export default function CategoriesGrid (props) {
     </div>
   )
 }
+
+export default CategoriesGrid
