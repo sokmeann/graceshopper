@@ -18,29 +18,32 @@ import ProductContainer from './containers/ProductContainer'
 import UserRegistration from './components/UserRegistration'
 import CategoriesGrid from './components/CategoriesGrid'
 import CategoriesContainer from './containers/CategoriesContainer'
+import CartContainer from './containers/CartContainer'
 
+import { currentUser } from './reducers/auth'
+import { fetchCart } from './reducers/cart'
 import {receiveProducts, fetchProductsByCategory, fetchProducts} from './reducers/products'
 import { setGuest } from './reducers/auth'
 import { fetchProduct } from './reducers/product'
 
 //get all products
 const onHomeEnter = () => {
+  // debugger
+  //import store with function.dispatch
+  store.dispatch(fetchProducts())
+  store.dispatch(currentUser())
 
-  store.dispatch(fetchProducts)
+}
 
-  // Placeholder function, Silvia to update this once the products are served
-  const products = axios.get('api/products')
-  const user = axios.get('api/users/sessionCheck')
+const onCartEnter = () => {
+  console.log('store.auth: ', store.getState())
 
-  return Promise.all([user, products])
-  .then(responses => responses.map(response => response.data))
-  .then(([user, productList]) => {
-    store.dispatch(receiveProducts(productList))
-    if (user.status === 'GUEST') {
-      store.dispatch(setGuest(user))
-    }
-  })
-  .catch(console.error('no products!'))
+  const state = store.getState()
+
+
+  if (state.auth.user.status === 'REGISTERED') store.dispatch(fetchCart(state.auth.user.id))
+  //else //TODO: need to do change 'createGuest' in auth to create cart in cart. and dispatch it here
+
 }
 
 const onCategoryEnter = (nextRouterState) => {
@@ -52,14 +55,6 @@ const onCategoryEnter = (nextRouterState) => {
 const onProductEnter = (nextRouterState) => {
   store.dispatch(fetchProduct(nextRouterState.params.productName))
 }
-// const onCartEnter = () => {
-//   const userId = 1
-//   return axios.get('api/orders/userId/products')
-//   .then(products) => {
-//
-//   }
-// }
-
 
 //needs to be cleaned up
 render(
@@ -73,9 +68,8 @@ render(
         <Route path="/category" component={CategoriesContainer} />
         <Route path="/category/:categoryName" component={ProductsContainer} onEnter={onCategoryEnter} />
         <Route path="/user" component={UserPageContainer} />
-        {/*<Route path="/cart" component={CartContainer} onEnter={onCartEnter} />*/}
+        <Route path="/cart" component={CartContainer} onEnter={onCartEnter} />
     </Route>
-    {/*<Route path="/product" component={Product} />*/}
     </Router>
   </Provider>,
   document.getElementById('main')
