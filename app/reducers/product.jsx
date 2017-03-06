@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
       newState.reviews = action.reviews
     break
     case SELECT_PRODUCT:
-      newState.selectedProduct = action.selectedProd
+      newState.selectedProduct = action.selectedProduct
     break
     default:
       return state
@@ -50,13 +50,13 @@ export const findReviewsByProduct = (prodId) => (
 ///////////
 // PRODUCTS
 ///////////
-export const selectProduct = selectedProd => ({
-  type: SELECT_PRODUCT, selectedProd
+export const selectProduct = selectedProduct => ({
+  type: SELECT_PRODUCT, selectedProduct
 })
 
-export const fetchProduct = (prodId) => (
+export const fetchProduct = (productName) => (
   dispatch =>
-    axios.get(`/api/products/${prodId}`)
+    axios.get(`/api/products/${productName}`)
       .then(res => res.data)
       .then(productFound => {
         dispatch(selectProduct(productFound))

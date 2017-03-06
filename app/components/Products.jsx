@@ -13,8 +13,8 @@ const Products = (props) => {
           {products.map(product => {
             return (
               <div className="product col-lg-4 col-xs-12" key={product.id}>
-                <Link to={`/products/${product.id}`}>
-                  <img src={product.imgUrls[0]} />
+                <Link to={`/products/${product.title}`}>
+                  <img className='productImage' src={product.imgUrls[0]} />
                   <div className="title">
                     <h5>{product.title}</h5>
                   </div>

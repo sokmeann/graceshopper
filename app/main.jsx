@@ -11,19 +11,17 @@ import Login from './components/Login'
 // import WhoAmI from './components/WhoAmI'
 import Home from './components/Home'
 import NavbarContainer from './containers/NavbarContainer'
-import Product from './containers/ProductContainer'
 import UserPageContainer from './containers/UserPageContainer'
-import Products from './components/Products'
 import ProductsContainer from './containers/ProductsContainer'
+import ProductContainer from './containers/ProductContainer'
 
 import UserRegistration from './components/UserRegistration'
 import CategoriesGrid from './components/CategoriesGrid'
 import CategoriesContainer from './containers/CategoriesContainer'
 
-import {receiveProducts, fetchProductsByCategory} from './reducers/products'
-import {setGuest} from './reducers/auth'
-
-import { fetchProducts } from './reducers/products' // duplicate for fetching products. need to resolve.
+import {receiveProducts, fetchProductsByCategory, fetchProducts} from './reducers/products'
+import { setGuest } from './reducers/auth'
+import { fetchProduct } from './reducers/product'
 
 //get all products
 const onHomeEnter = () => {
@@ -46,10 +44,13 @@ const onHomeEnter = () => {
 }
 
 const onCategoryEnter = (nextRouterState) => {
-  console.log("ENTERING CATEGORY");
   store.dispatch(
     fetchProductsByCategory(nextRouterState.params.categoryName)
   )
+}
+
+const onProductEnter = (nextRouterState) => {
+  store.dispatch(fetchProduct(nextRouterState.params.productName))
 }
 // const onCartEnter = () => {
 //   const userId = 1
@@ -68,13 +69,13 @@ render(
         <IndexRedirect to="/category" />  
         <Route path="/test" component={CategoriesGrid} />
         <Route path="/userRegistration" component={UserRegistration} />
-        <Route path="/products/:productId" component={Product} />
+        <Route path="/products/:productName" component={ProductContainer} onEnter={onProductEnter}/>
         <Route path="/category" component={CategoriesContainer} />
         <Route path="/category/:categoryName" component={ProductsContainer} onEnter={onCategoryEnter}/>
         <Route path="/user" component={UserPageContainer} />
         {/*<Route path="/cart" component={CartContainer} onEnter={onCartEnter} />*/}
     </Route>
-    <Route path="/product" component={Product} />
+    {/*<Route path="/product" component={Product} />*/}
     </Router>
   </Provider>,
   document.getElementById('main')

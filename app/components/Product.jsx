@@ -1,20 +1,21 @@
 import React from 'react'
 
-const ProductInfo = (props) => {
+const Product = (props) => {
+  console.log("PRODUCT PROPS", props)
   const product = props.selectedProduct
     return (
       <div id="product">
         { product ?
           <div>
-            <h1>{ product.title }</h1>
+            <h1>{ product.title.replace('-', ' ') }</h1>
             <div className="photodisplay">
               <img src={ `${product.imgUrls[0]}` } />
               <div className="photodisplay">
-                <img className="imgthumb" src={ `${product.imgUrls[1]}` } />
+                <img className="imgthumb" src={ `${product.imgUrls[0]}` } />
                 <br />
-                <img className="imgthumb" src={ `${product.imgUrls[1]}` } />
+                <img className="imgthumb" src={ `${product.imgUrls[0]}` } />
                 <br />
-                <img id="lastimg" className="imgthumb" src={ `${product.imgUrls[1]}` } />
+                <img id="lastimg" className="imgthumb" src={ `${product.imgUrls[0]}` } />
               </div>
             </div>
             <br />
@@ -30,4 +31,4 @@ const ProductInfo = (props) => {
   )
 }
 
-export default ProductInfo
+export default Product
