@@ -28,10 +28,14 @@ module.exports = require('express').Router() // eslint-disable-line new-cap
     Product.destroy({
       where: {id: req.params.id}
     })
-    .then(res.sendStatus(204))
+    .then(() => {
+      res.sendStatus(204)
+    })
     .catch(next))
   .put('/:id/', (req, res, next) =>
     Product.findById(req.params.id)
     .then(product => product.update(req.body))
-    .then(res.sendStatus(200))
+    .then(() => {
+      res.sendStatus(200)
+    })
     .catch(next))

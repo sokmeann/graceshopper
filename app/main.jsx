@@ -16,7 +16,7 @@ import UserPageContainer from './containers/UserPageContainer'
 import Products from './components/Products'
 import UserRegistration from './components/UserRegistration'
 import CategoriesContainer from './containers/CategoriesContainer'
-
+import UserRegistration from './components/UserRegistration'
 import receiveProducts from './reducers/products'
 
 //get all products
