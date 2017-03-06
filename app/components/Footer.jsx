@@ -4,7 +4,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer>
-      <div id="footer">
+      <div id="footer" className="navbar navbar-default navbar-fixed-bottom">
         <a className="about">About</a>
       </div>
     </footer>

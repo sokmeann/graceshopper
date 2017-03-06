@@ -1,241 +1,9 @@
-@media (min-width: 0px) {
-  .col-xs-1 {
-    width: 8.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-xs-2 {
-    width: 16.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-xs-3 {
-    width: 25%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-xs-4 {
-    width: 33.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-xs-5 {
-    width: 41.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-xs-6 {
-    width: 50%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-xs-7 {
-    width: 58.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-xs-8 {
-    width: 66.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-xs-9 {
-    width: 75%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-xs-10 {
-    width: 83.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-xs-11 {
-    width: 91.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-xs-12 {
-    width: 100%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .container {
-    max-width: auto;
-    width: 100%; } }
-
-@media (min-width: 576px) {
-  .col-sm-1 {
-    width: 8.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-sm-2 {
-    width: 16.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-sm-3 {
-    width: 25%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-sm-4 {
-    width: 33.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-sm-5 {
-    width: 41.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-sm-6 {
-    width: 50%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-sm-7 {
-    width: 58.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-sm-8 {
-    width: 66.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-sm-9 {
-    width: 75%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-sm-10 {
-    width: 83.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-sm-11 {
-    width: 91.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-sm-12 {
-    width: 100%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .container {
-    max-width: 750px;
-    width: 100%; } }
-
-@media (min-width: 768px) {
-  .col-md-1 {
-    width: 8.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-md-2 {
-    width: 16.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-md-3 {
-    width: 25%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-md-4 {
-    width: 33.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-md-5 {
-    width: 41.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-md-6 {
-    width: 50%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-md-7 {
-    width: 58.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-md-8 {
-    width: 66.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-md-9 {
-    width: 75%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-md-10 {
-    width: 83.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-md-11 {
-    width: 91.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-md-12 {
-    width: 100%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .container {
-    max-width: 970px;
-    width: 100%; } }
-
-@media (min-width: 992px) {
-  .col-lg-1 {
-    width: 8.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-lg-2 {
-    width: 16.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-lg-3 {
-    width: 25%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-lg-4 {
-    width: 33.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-lg-5 {
-    width: 41.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-lg-6 {
-    width: 50%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-lg-7 {
-    width: 58.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-lg-8 {
-    width: 66.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-lg-9 {
-    width: 75%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-lg-10 {
-    width: 83.33333%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-lg-11 {
-    width: 91.66667%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .col-lg-12 {
-    width: 100%;
-    float: left;
-    padding: 0px 10px 0px 10px; }
-  .container {
-    max-width: 1170px;
-    width: 100%; } }
-
 .navbar {
-  background-color: #b2ebff;
-  width: 100%;
-  height: 80px; }
+  margin-bottom: 0px; }
 
 body {
   display: block;
   margin: 0; }
-
-.navbar .logo {
-  font-size: 25px;
-  font-weight: bold;
-  padding-top: 25px; }
-
-.navbar .search {
-  padding-top: 25px; }
-
-.navbar .cart {
-  font-size: 18px;
-  font-weight: bold;
-  padding-top: 25px; }
-
-.navbar .login {
-  font-size: 18px;
-  font-weight: bold;
-  padding-top: 25px; }
 
 #product {
   padding: 30px;
@@ -267,9 +35,10 @@ body {
   #product .fa {
     color: #ffe900; }
 
-#registration {
+form#registration {
   padding: 30px;
-  font-family: 'Arial'; }
+  font-family: 'Arial';
+  align-items: center; }
 
 #searchBar {
   width: 85%;
@@ -278,3 +47,44 @@ body {
   border-radius: 10px;
   margin-right: 15px;
   padding: 3px; }
+
+.modal-overlay-div {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.65); }
+
+.modal-content-div {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+  overflow: auto;
+  text-align: center;
+  padding: 4px;
+  cursor: pointer; }
+
+.modal-content-div:after {
+  vertical-align: middle;
+  display: inline-block;
+  height: 100%;
+  margin-left: -.05em;
+  content: ''; }
+
+.modal-dialog-div {
+  position: relative;
+  outline: 0;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  max-width: 520px;
+  cursor: default;
+  border-radius: 4px; }

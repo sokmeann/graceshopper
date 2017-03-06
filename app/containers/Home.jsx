@@ -1,24 +1,22 @@
 import React from 'react'
 
-import NavbarContainer from '../containers/NavbarContainer'
-import Footer from './Footer'
+import NavbarContainer from './NavbarContainer'
+import Footer from '../components/Footer'
 
 import CategoriesContainer from '../containers/CategoriesContainer'
 
 const Home = () => {
   return (
     <div id="home">
-      <div className="navbar">
-        <NavbarContainer />
-      </div>
+      <NavbarContainer />
       <div className="col-lg-10 col-lg-offset-1">
       <CategoriesContainer />
       </div>
-      <div className="panel-footer">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   )
 }
 
 export default Home
+
+//handleChange={this.handleChange} search={this.state.search}
