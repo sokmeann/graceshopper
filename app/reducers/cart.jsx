@@ -8,10 +8,10 @@ const CHECKOUT = 'CHECKOUT'
 
 const initialCartState = {
   id: null,
-  dateProcessing: null,
-  dateCancelled: null,
-  dateCompleted: null,
-  user_id: null //eslint-disable-line camelcase
+  status: '',
+  user_id: null, //eslint-disable-line camelcase
+  products: [],
+
 }
 
 export default (state = initialCartState, action) => {

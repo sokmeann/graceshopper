@@ -5,7 +5,7 @@ const RECIEVE_PRODUCTS = 'RECIEVE_PRODUCTS'
 
 const initialProductsState = {
   selectedProducts: null,
-  products: null
+  allProducts: null
 }
 
 export default (state = initialProductsState, action) => {
@@ -17,7 +17,7 @@ export default (state = initialProductsState, action) => {
       newState.selectedProducts = action.categoryProducts
       break
     case RECIEVE_PRODUCTS:
-      newState.products = action.products
+      newState.allProducts = action.products
       break
     default:
       return state
@@ -46,7 +46,7 @@ export const fetchProductsByCategory = categoryName => {
   return dispatch => {
     axios.get(`/api/products/categories/${categoryName}`)
       .then(products => {
-        dispatch(selectProducts(products.data))
+        dispatch(selectProducts(products))
       })
   }
 }

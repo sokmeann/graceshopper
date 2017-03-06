@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-// ACTIONS
+// REDUCER
 const SELECT_USER = 'SELECT_USER'
 
 const initialState = {
@@ -15,5 +15,7 @@ const reducer = (state = initialState, action) => {
       return state
   }
 }
+
+// ACTION
 
 export default reducer
