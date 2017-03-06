@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const AUTHENTICATED = 'AUTHENTICATED'
+const SET_GUESTUSER = 'SET_GUESTUSER'
 
 const initialState = {
   user: null
@@ -12,15 +13,32 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTHENTICATED:
       newState.user = action.user
-      return newState
+      break
+    case SET_GUESTUSER:
+      newState.user = action.newUser
+      break
     default:
       return state
   }
+  return newState
 }
 
 export const authenticated = user => ({
   type: AUTHENTICATED, user
 })
+
+export const setGuest = newUser => ({
+  type: SET_GUESTUSER,
+  newUser
+})
+
+export const createGuest = () =>
+  dispatch =>
+    axios.post('/api/users')
+      .then(newUser => {
+        dispatch(setGuest(newUser))
+      })
+      .catch(console.error('guest creation failed'))
 
 export const whoami = () =>
   dispatch =>

@@ -6,18 +6,38 @@ const User = db.model('users')
 const {mustBeLoggedIn, forbidden} = require('../auth.filters')
 
 module.exports = require('express').Router() // eslint-disable-line new-cap
+  .get('/sessionCheck', (req, res, next) => {
+    if (req.session.passport) {
+      User.findById(req.session.passport.user)
+      .then(user => {
+        res.json(user)
+      })
+      .catch(console.error('no user found'))
+    } else {
+      User.create()
+      .then(newUser => {
+        res.json(newUser)
+      })
+      .catch(console.error('failed to create guest user'))
+    }
+  })
+
+
   .get('/', forbidden('only admins can list users'), (req, res, next) =>
     User.findAll()
     .then(users => res.json(users))
     .catch(next))
+
   .post('/', (req, res, next) =>
     User.create(req.body)
     .then(user => res.status(201).json(user))
     .catch(next))
+
   .get('/:id', mustBeLoggedIn, (req, res, next) =>
     User.findById(req.params.id)
     .then(user => res.json(user))
     .catch(next))
+
   .put('/:id', (req, res, next) =>
     User.findById(req.params.id)
     .then(user => {
@@ -26,6 +46,7 @@ module.exports = require('express').Router() // eslint-disable-line new-cap
     })
     .then(updatedUser => res.json(updatedUser))
     .catch(next))
+
   .delete('/:id', (req, res, next) =>
     User.findById(req.params.id)
     .then(user => {
