@@ -32,7 +32,7 @@ export const setGuest = newUser => ({
   newUser
 })
 
-export const createGuest = () =>
+export const createGuest = () => //need to create a new cart not a new guest
   dispatch =>
     axios.post('/api/users')
       .then(newUser => {
@@ -69,16 +69,18 @@ export const logout = () =>
 
 
 export const currentUser = () =>
-  dispatch =>
-    axios.get('api/users/sessionCheck')
+  dispatch => {
+    console.log('searching for currrent user')
+    return axios.get('api/users/sessionCheck')
       .then((user) => {
-        console.log('this is the current user: ', user)
-        if (user.status === 'GUEST') {
-          dispatch(setGuest(user))
+        console.log('this is the current user: ', user.data)
+        if (user.data.status === 'GUEST') {
+          dispatch(setGuest(user.data))
         } else {
           dispatch(whoami())
         }
       })
       .catch(console.error('no user'))
+  }
 
 export default reducer

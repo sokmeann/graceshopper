@@ -55,7 +55,7 @@ export const fetchProducts = () => {
   return dispatch => {
     axios.get(`/api/products`)
     .then(products => {
-      dispatch(receiveProducts(products)) // run test to check that this still works
+      dispatch(receiveProducts(products.data)) // run test to check that this still works
     })
   }
 }

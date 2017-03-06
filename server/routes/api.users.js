@@ -12,14 +12,14 @@ module.exports = require('express').Router() // eslint-disable-line new-cap
     if (req.session.passport) {
       return User.findById(req.session.passport.user)
       .then(user => {
-        return res.json(user)
+        res.json(user)
       })
       .catch(console.error('no user found'))
     } else {
       console.log('Trying to create User')
       return User.create()
       .then(newUser => {
-        return res.json(newUser)
+        res.json(newUser)
       })
       .catch(console.error('failed to create guest user'))
     }

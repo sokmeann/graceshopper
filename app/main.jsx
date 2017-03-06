@@ -25,17 +25,20 @@ import { fetchCart } from './reducers/cart' // duplicate for fetching products. 
 
 //get all products
 const onHomeEnter = () => {
-
-  fetchProducts()
-  currentUser()
+  // debugger
+  //import store with function.dispatch
+  store.dispatch(fetchProducts())
+  store.dispatch(currentUser())
 
 }
 
 const onCartEnter = () => {
   console.log('store.auth: ', store.getState())
 
+  const state = store.getState()
 
-  fetchCart(store.auth.user.id)
+  if (state.auth.user.status === 'REGISTERED') store.dispatch(fetchCart(state.auth.user.id))
+  //else //TODO: need to do change 'createGuest' in auth to create cart in cart. and dispatch it here
 
 }
 
