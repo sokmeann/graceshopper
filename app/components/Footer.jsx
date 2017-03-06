@@ -4,7 +4,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer>
-      <div>
+      <div id="footer">
         <a className="about">About</a>
       </div>
     </footer>

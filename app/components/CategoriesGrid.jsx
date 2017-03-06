@@ -10,13 +10,13 @@ const CategoriesGrid = (props) => {
       <h3>Categories</h3>
       <div className="categoryList">
       {
-        Object.keys(categories).map(category => {
+        categories && categories.map(category => {
           return (
-            <div className="category" key={category.category}>
+            <div className="category col-lg-4 col-xs-12" key={category}>
               <Link to={`/category/products`}>
                 <img src="http://placehold.it/250x250" />
                 <div className="categoryName">
-                  <h5>{ category.category }</h5>
+                  <h5>{ category }</h5>
                 </div>
               </Link>
             </div>

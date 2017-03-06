@@ -15,11 +15,15 @@ import Product from './containers/ProductContainer'
 import UserPageContainer from './containers/UserPageContainer'
 import Products from './components/Products'
 import UserRegistration from './components/UserRegistration'
+import CategoriesGrid from './components/CategoriesGrid'
 import CategoriesContainer from './containers/CategoriesContainer'
-import receiveProducts from './reducers/products'
+import { fetchProducts } from './reducers/products'
 
 //get all products
 const onHomeEnter = () => {
+
+  store.dispatch(fetchProducts)
+
   // Placeholder function, Silvia to update this once the products are served
   // return axios.get('/api/products')
   // .then((products) => {
@@ -36,15 +40,11 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Home} onEnter={onHomeEnter}>
-        <IndexRedirect to="/navbar" />
-        <Route path="/navbar" component={NavbarContainer} />
-        <Route path="/jokes" component={Jokes} />
+        <Route path="/test" component={CategoriesGrid} />
         <Route path="/userRegistration" component={UserRegistration} />
-        <Route path="/product" component={Product} />
         <Route path="/products/:productId" component={Product} />
         <Route path="/category" component={CategoriesContainer} />
-        <Route path="category/products" component={Products} />
-        <Route path="/login" component={Login} />
+        <Route path="/category/products" component={Products} />
         <Route path="/user" component={UserPageContainer} />
     </Route>
     </Router>
