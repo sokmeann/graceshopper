@@ -14,6 +14,8 @@ import NavbarContainer from './containers/NavbarContainer'
 import Product from './containers/ProductContainer'
 import UserPageContainer from './containers/UserPageContainer'
 import Products from './components/Products'
+import ProductsContainer from './containers/ProductsContainer'
+
 import UserRegistration from './components/UserRegistration'
 import CategoriesGrid from './components/CategoriesGrid'
 import CategoriesContainer from './containers/CategoriesContainer'
@@ -68,7 +70,7 @@ render(
         <Route path="/userRegistration" component={UserRegistration} />
         <Route path="/products/:productId" component={Product} />
         <Route path="/category" component={CategoriesContainer} />
-        <Route path="/category/:categoryName" component={Products} onEnter={onCategoryEnter}/>
+        <Route path="/category/:categoryName" component={ProductsContainer} onEnter={onCategoryEnter}/>
         <Route path="/user" component={UserPageContainer} />
         {/*<Route path="/cart" component={CartContainer} onEnter={onCartEnter} />*/}
     </Route>

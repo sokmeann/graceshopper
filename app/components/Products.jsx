@@ -1,32 +1,35 @@
 import React from 'react'
 import {Link} from 'react-router'
 
-const ProductsList = (props) => {
+const Products = (props) => {
 
   const products = props.products
 
-  return (
-    <div id="products">
-      <div className="productList">
-      {
-        products && products.map(product => {
-          return (
-            <div className="product" key={ product.id }>
-              <Link to={`/products/${product.id}`}>
-                <img src="http://placehold.it/200x200" />
-              </Link>
-                <div className="productName">
-                  <h5>{ product.title }</h5>
-                  <h6>price: ${`${product.currentPrice}`}</h6>
-                </div>
-            </div>
-          )
-        })
-      }
+  if (products) {
+    return (
+      <div id="categories">
+        <h3>{products[0].categoryName}</h3>
+        <div className="productList">
+          {products.map(product => {
+            return (
+              <div className="product col-lg-4 col-xs-12" key={product.id}>
+                <Link to={`/products/${product.id}`}>
+                  <img src={product.imgUrls[0]} />
+                  <div className="title">
+                    <h5>{product.title}</h5>
+                  </div>
+                </Link>
+              </div>
+            )
+          })
+          }
+        </div>
       </div>
-    </div>
-  )
+    )
+  } else {
+    return (<h1>No products for {props.params.categoryName}</h1>)
+  }
 }
 
 
-export default ProductsList
+export default Products
