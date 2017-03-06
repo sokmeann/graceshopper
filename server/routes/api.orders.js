@@ -37,6 +37,20 @@ api.get('/user/:userId', (req, res, next) => {
   .catch(next)
 })
 
+api.get('/user/:userId/open', (req, res, next) => {
+  Order.findOne({
+    where: {
+      user_id: req.params.userId, //eslint-disable-line camelcase
+      status: 'created'
+    },
+    include: {
+      model: Product,
+    }
+  })
+  .then(orders => res.json(orders) )
+  .catch(next)
+})
+
 
 // POST creates a new order for a user, returns that new order
 api.post('/user/:userId', (req, res, next) => {
@@ -90,6 +104,22 @@ api.put('/:orderId/products', (req, res, next) => {
   })
   )
   .then(order => res.status(201).json(order.products) )
+  .catch(next)
+})
+
+// DELETE entire order
+api.delete('/:orderId', (req, res, next) => {
+  let orderId = req.params.orderId
+
+  Order.destroy({
+    where: {
+      order_id: orderId, //eslint-disable-line camelcase
+    }
+  })
+  .then(removed => { //destroy returns the number of entries deleted
+    if (removed) res.sendStatus(204)
+    else res.sendStatus(304)
+  })
   .catch(next)
 })
 

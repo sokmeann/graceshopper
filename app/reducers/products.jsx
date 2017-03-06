@@ -13,12 +13,12 @@ export default (state = initialProductsState, action) => {
   const newState = Object.assign({}, state)
 
   switch (action.type) {
+    case SELECT_PRODUCTS_BY_CATEGORY:
+      newState.selectedProducts = action.selectedProducts
+      break
     case RECIEVE_PRODUCTS:
       newState.allProducts = action.products
       break
-    case SELECT_PRODUCTS_BY_CATEGORY:
-        newState.selectedProducts = action.selectedProducts
-        break
     default:
       return state
 
@@ -35,6 +35,12 @@ export const selectProductsByCategory = selectedProducts => ({
     selectedProducts
 })
 
+// get all products
+export const receiveProducts = products => ({
+  type: RECIEVE_PRODUCTS,
+  products
+})
+
 //// DISPATCH(ACTION) ////
 export const fetchProductsByCategory = categoryName => {
   return dispatch => {
@@ -45,17 +51,11 @@ export const fetchProductsByCategory = categoryName => {
   }
 }
 
-// get all products
-export const receiveProducts = products => ({
-  type: RECIEVE_PRODUCTS,
-  products
-})
-
 export const fetchProducts = () => {
   return dispatch => {
     axios.get(`/api/products`)
-      .then(products => {
-        dispatch(selectProducts(products)) // run test to check that this still works
-      })
+    .then(products => {
+      dispatch(receiveProducts(products)) // run test to check that this still works
+    })
   }
 }

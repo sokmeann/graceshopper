@@ -37,6 +37,11 @@ export const createGuest = () =>
     axios.post('/api/users')
       .then(newUser => {
         dispatch(setGuest(newUser))
+        return newUser
+      })
+      .then((newUser) => {
+        const id = newUser.id
+        return axios.post(`/api/orders/user/${id}`)
       })
       .catch(console.error('guest creation failed'))
 
@@ -61,5 +66,19 @@ export const logout = () =>
     axios.post('/api/auth/logout')
       .then(() => dispatch(whoami()))
       .catch(() => dispatch(whoami()))
+
+
+export const currentUser = () =>
+  dispatch =>
+    axios.get('api/users/sessionCheck')
+      .then((user) => {
+        console.log('this is the current user: ', user)
+        if (user.status === 'GUEST') {
+          dispatch(setGuest(user))
+        } else {
+          dispatch(whoami())
+        }
+      })
+      .catch(console.error('no user'))
 
 export default reducer

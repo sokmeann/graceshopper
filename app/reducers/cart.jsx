@@ -9,7 +9,7 @@ const CHECKOUT = 'CHECKOUT'
 const initialCartState = {
   id: null,
   status: '',
-  user_id: null, //eslint-disable-line camelcase
+  // user_id: null, //eslint-disable-line camelcase
   products: [],
 
 }
@@ -20,7 +20,9 @@ export default (state = initialCartState, action) => {
 
   switch (action.type) {
     case RETRIEVE_CART:
-      newState.categoryProducts = action.categoryProducts
+      newState.products = action.products
+      newState.status = action.status
+      newState.id = action.id
       break
     case EMPTY_CART:
       newState.receiveProducts = action.products
@@ -37,5 +39,32 @@ export default (state = initialCartState, action) => {
 
   }
   return newState
+
+}
+
+export const receiveOrder = order => {
+  return {
+    type: RETRIEVE_CART,
+    id: order.id,
+    status: order.status,
+    products: order.products
+  }
+}
+
+export const fetchCart = userId => {
+  return dispatch => {
+    axios.get(`/api/orders/user/${userId}/open`)
+      .then(order => {
+        dispatch(receiveOrder(order.data))
+      })
+  }
+}
+
+export const emptyCart = (orderId, userId) => {
+
+  return axios.delete(`/api/orders/${orderId}`)
+  .then(() => axios.post(`/api/orders/user/${userId}`))
+  .then(() => fetchCart(userId))
+  .catch(console.error('failed to Empty cart'))
 
 }

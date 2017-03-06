@@ -7,16 +7,19 @@ const {mustBeLoggedIn, forbidden} = require('../auth.filters')
 
 module.exports = require('express').Router() // eslint-disable-line new-cap
   .get('/sessionCheck', (req, res, next) => {
+    console.log('Doing a Session Check')
+
     if (req.session.passport) {
-      User.findById(req.session.passport.user)
+      return User.findById(req.session.passport.user)
       .then(user => {
-        res.json(user)
+        return res.json(user)
       })
       .catch(console.error('no user found'))
     } else {
-      User.create()
+      console.log('Trying to create User')
+      return User.create()
       .then(newUser => {
-        res.json(newUser)
+        return res.json(newUser)
       })
       .catch(console.error('failed to create guest user'))
     }

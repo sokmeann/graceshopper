@@ -17,39 +17,27 @@ import Products from './components/Products'
 import UserRegistration from './components/UserRegistration'
 import CategoriesGrid from './components/CategoriesGrid'
 import CategoriesContainer from './containers/CategoriesContainer'
+import CartContainer from './containers/CartContainer'
 
-import {receiveProducts} from './reducers/products'
-import {setGuest} from './reducers/auth'
-
+import { currentUser } from './reducers/auth'
 import { fetchProducts } from './reducers/products' // duplicate for fetching products. need to resolve.
+import { fetchCart } from './reducers/cart' // duplicate for fetching products. need to resolve.
 
 //get all products
 const onHomeEnter = () => {
 
-  store.dispatch(fetchProducts)
+  fetchProducts()
+  currentUser()
 
-  // Placeholder function, Silvia to update this once the products are served
-  const products = axios.get('api/products')
-  const user = axios.get('api/users/sessionCheck')
-
-  return Promise.all([user, products])
-  .then(responses => responses.map(response => response.data))
-  .then(([user, productList]) => {
-    store.dispatch(receiveProducts(productList))
-    if (user.status === 'GUEST') {
-      store.dispatch(setGuest(user))
-    }
-  })
-  .catch(console.error('no products!'))
 }
 
-// const onCartEnter = () => {
-//   const userId = 1
-//   return axios.get('api/orders/userId/products')
-//   .then(products) => {
-//
-//   }
-// }
+const onCartEnter = () => {
+  console.log('store.auth: ', store.getState())
+
+
+  fetchCart(store.auth.user.id)
+
+}
 
 
 //needs to be cleaned up
@@ -63,7 +51,7 @@ render(
         <Route path="/category" component={CategoriesContainer} />
         <Route path="/category/products" component={Products} />
         <Route path="/user" component={UserPageContainer} />
-        {/*<Route path="/cart" component={CartContainer} onEnter={onCartEnter} />*/}
+        <Route path="/cart" component={CartContainer} onEnter={onCartEnter} />
     </Route>
     <Route path="/product" component={Product} />
     </Router>
