@@ -16,12 +16,10 @@ const mapStateToProps = (state) => {
 // }
 
 class ProductContainer extends Component {
-  constructor(props){
-    super(props)
-  }
 
-  render(){
-    return(
+  render() {
+    console.log("RENDERING PRODUCT")
+    return (
       <div id="product">
         <Product selectedProduct={ this.props.selectedProduct } />
         <QtyAddtoCart />
@@ -31,4 +29,4 @@ class ProductContainer extends Component {
   }
 }
 
-export default connect(mapStateToProps, null)(ProductContainer)
+export default connect(mapStateToProps)(ProductContainer)
