@@ -12,7 +12,7 @@ const fakeProducts = [{id: 1, title: 'Chair'}, {id: 2, title: 'Vase'}]
 // get products from state to match with input in search
 const mapStateToProps = (state) => {
   // const products = state.products
-  console.log('maptoprops', state)
+  // console.log('maptoprops', state)
   return {
     products: fakeProducts,
     user: state.auth.user
@@ -82,7 +82,7 @@ class Navbar extends Component {
             </form>
             <ul className="nav navbar-nav navbar-right">
             {
-              user && user !== '' && user !== null ? <LoggedIn user={user} /> : <Login />
+              user && user.status !== 'GUEST' && user !== null ? <LoggedIn user={user} /> : <Login />
             }
             </ul>
           </div>
