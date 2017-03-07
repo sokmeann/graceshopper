@@ -5,7 +5,6 @@
 
 Link to Heroku deployed website: https://drygoods.herokuapp.com/
 
-
 ========== BONES ==========
 
 # Hi, I'm bones
