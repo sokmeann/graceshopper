@@ -49,7 +49,10 @@ form#registration {
   padding: 3px; }
 
 .productImage {
-  max-width: 100%; }
+  max-width: 33%; }
+
+.categoryImage {
+  max-width: 33%; }
 
 .modal-overlay-div {
   position: fixed;

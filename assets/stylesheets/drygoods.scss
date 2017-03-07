@@ -87,9 +87,12 @@ form#registration {
 
 // PRODUCT IMAGE
 .productImage {
-  max-width: 100%
+  max-width: 33%
 }
 
+.categoryImage {
+  max-width: 33%
+}
 // Modals boilerplate CSS
 .modal-overlay-div {
     position: fixed;

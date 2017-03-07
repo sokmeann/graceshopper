@@ -9,15 +9,13 @@ const Products = (props) => {
     return (
       <div id="categories">
         <h3>{products[0].categoryName}</h3>
-        <div className="productList">
+        <div className="productList row">
           {products.map(product => {
             return (
               <div className="product col-lg-4 col-xs-12" key={product.id}>
                 <Link to={`/products/${product.title}`}>
+                  <h5>{product.title}</h5>  
                   <img className='productImage' src={product.imgUrls[0]} />
-                  <div className="title">
-                    <h5>{product.title}</h5>
-                  </div>
                 </Link>
               </div>
             )

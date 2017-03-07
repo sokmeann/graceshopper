@@ -1,7 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router'
+import { getCategories } from '../utils'
 
 const CategoriesGrid = (props) => {
+
 
   const categories = props.categories
 
@@ -12,12 +14,10 @@ const CategoriesGrid = (props) => {
       {
         categories && categories.map(category => {
           return (
-            <div className="category col-lg-4 col-xs-12" key={category}>
-              <Link to={`/category/products`}>
-                <img src="http://placehold.it/250x250" />
-                <div className="categoryName">
-                  <h5>{ category }</h5>
-                </div>
+            <div className="category col-lg-4 col-xs-12" key={category.name}>
+              <Link to={`/category/${category.name}`}>
+                <h5>{ category.name }</h5>  
+                <img className='productImage' src={category.image} />
               </Link>
             </div>
           )
