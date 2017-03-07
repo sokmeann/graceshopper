@@ -1,14 +1,14 @@
 import React from 'react'
 import {Link} from 'react-router'
 
-const Products = (props) => {
+const ProductSearch = (props) => {
 
   const products = props.products
-
+console.log(products)
   if (products) {
     return (
       <div id="categories">
-        <h3>{products[0].categoryName}</h3>
+        <h3>Your Search:</h3>
         <div className="productList row">
           {products.map(product => {
             return (
@@ -25,9 +25,9 @@ const Products = (props) => {
       </div>
     )
   } else {
-    return (<h1>No products for {props.params.categoryName}</h1>)
+    return (<h1>Sorry, no products found!</h1>)
   }
 }
 
 
-export default Products
+export default ProductSearch
