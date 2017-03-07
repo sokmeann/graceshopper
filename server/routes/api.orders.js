@@ -19,7 +19,13 @@ api.get('', (req, res, next) => {
 
 // GET all orders
 api.get('/:orderId', (req, res, next) => {
-  Order.findOne({ where: { id: req.params.orderId } }) //eslint-disable-line camelcase
+  Order.findOne({
+    where: {
+    id: req.params.orderId //eslint-disable-line camelcase
+  },
+  include: {
+    model: Product
+  }}) //eslint-disable-line camelcase
   .then(order => res.json([order]) )
   .catch(next)
 })
