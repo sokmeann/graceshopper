@@ -26,22 +26,18 @@ import {receiveProducts, fetchProductsByCategory, fetchProducts} from './reducer
 import { setGuest } from './reducers/auth'
 import { fetchProduct } from './reducers/product'
 
-//get all products
+//get all products, authenticate user, or initiate guest, fecth cart or initialize new cart
 const onHomeEnter = () => {
-  // debugger
-  //import store with function.dispatch
+
   store.dispatch(fetchProducts())
-  return store.dispatch(currentUser())
+  store.dispatch(currentUser())
   .then(() => {
     const state = store.getState()
 
-    console.log(state)
     if (state.auth.user.status === 'REGISTERED'){
-      console.log('fetching current cart')
       store.dispatch(fetchCart(state.auth.user.id))
     }
     else  {
-      console.log('creating guest cart')
       store.dispatch(newGuestCart(state.auth.user.id))
     }
   })

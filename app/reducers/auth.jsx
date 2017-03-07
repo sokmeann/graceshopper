@@ -70,10 +70,8 @@ export const logout = () =>
 
 export const currentUser = () =>
   dispatch => {
-    console.log('searching for currrent user')
     return axios.get('api/users/sessionCheck')
       .then((user) => {
-        console.log('this is the current user: ', user.data)
         if (user.data.status === 'GUEST') {
           dispatch(setGuest(user.data))
         } else {
