@@ -53,10 +53,20 @@ export const receiveOrder = order => {
 
 export const fetchCart = userId => {
   return dispatch => {
-    axios.get(`/api/orders/user/${userId}/open`)
-      .then(order => {
-        dispatch(receiveOrder(order.data))
-      })
+    axios.get(`/api/orders/user/${userId}`)
+    .then(order => {
+      dispatch(receiveOrder(order.data[0]))
+    })
+    .catch(console.error('fetch cart failed'))
+  }
+}
+export const newGuestCart = (userId) => {
+  return dispatch => {
+    axios.post(`/api/orders/user/${userId}`)
+    .then(order => {
+      dispatch(receiveOrder(order.data))
+    })
+    .catch(console.error('guest creation failed'))
   }
 }
 

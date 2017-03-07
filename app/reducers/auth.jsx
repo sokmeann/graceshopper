@@ -32,18 +32,18 @@ export const setGuest = newUser => ({
   newUser
 })
 
-export const createGuest = () => //need to create a new cart not a new guest
-  dispatch =>
-    axios.post('/api/users')
-      .then(newUser => {
-        dispatch(setGuest(newUser))
-        return newUser
-      })
-      .then((newUser) => {
-        const id = newUser.id
-        return axios.post(`/api/orders/user/${id}`)
-      })
-      .catch(console.error('guest creation failed'))
+// export const createGuest = () => //need to create a new cart not a new guest
+//   dispatch =>
+//     axios.post('/api/users')
+//       .then(newUser => {
+//         dispatch(setGuest(newUser))
+//         return newUser
+//       })
+//       .then((newUser) => {
+//         const id = newUser.id
+//         return axios.post(`/api/orders/user/${id}`)
+//       })
+//       .catch(console.error('guest creation failed'))
 
 export const whoami = () =>
   dispatch =>

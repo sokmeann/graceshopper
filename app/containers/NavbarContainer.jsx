@@ -82,7 +82,7 @@ class Navbar extends Component {
             </form>
             <ul className="nav navbar-nav navbar-right">
             {
-              user && user !== '' && user !== null ? <LoggedIn user={user} /> : <Login />
+              user && user.status !== 'GUEST' && user !== null ? <LoggedIn user={user} /> : <Login />
             }
             </ul>
           </div>

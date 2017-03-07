@@ -31,6 +31,9 @@ api.get('/user/:userId', (req, res, next) => {
   Order.findAll({
     where: {
       user_id: req.params.userId //eslint-disable-line camelcase
+    },
+    include: {
+      model: Product
     }
   })
   .then(orders => res.json(orders) )
@@ -44,7 +47,7 @@ api.get('/user/:userId/open', (req, res, next) => {
       status: 'created'
     },
     include: {
-      model: Product,
+      model: Product
     }
   })
   .then(orders => res.json(orders) )

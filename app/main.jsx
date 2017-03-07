@@ -21,7 +21,7 @@ import CategoriesContainer from './containers/CategoriesContainer'
 import CartContainer from './containers/CartContainer'
 
 import { currentUser } from './reducers/auth'
-import { fetchCart } from './reducers/cart'
+import { fetchCart, newGuestCart } from './reducers/cart'
 import {receiveProducts, fetchProductsByCategory, fetchProducts} from './reducers/products'
 import { setGuest } from './reducers/auth'
 import { fetchProduct } from './reducers/product'
@@ -31,18 +31,20 @@ const onHomeEnter = () => {
   // debugger
   //import store with function.dispatch
   store.dispatch(fetchProducts())
-  store.dispatch(currentUser())
+  return store.dispatch(currentUser())
+  .then(() => {
+    const state = store.getState()
 
-}
-
-const onCartEnter = () => {
-  console.log('store.auth: ', store.getState())
-
-  const state = store.getState()
-
-
-  if (state.auth.user.status === 'REGISTERED') store.dispatch(fetchCart(state.auth.user.id))
-  //else //TODO: need to do change 'createGuest' in auth to create cart in cart. and dispatch it here
+    console.log(state)
+    if (state.auth.user.status === 'REGISTERED'){
+      console.log('fetching current cart')
+      store.dispatch(fetchCart(state.auth.user.id))
+    }
+    else  {
+      console.log('creating guest cart')
+      store.dispatch(newGuestCart(state.auth.user.id))
+    }
+  })
 
 }
 
@@ -68,7 +70,7 @@ render(
         <Route path="/category" component={CategoriesContainer} />
         <Route path="/category/:categoryName" component={ProductsContainer} onEnter={onCategoryEnter} />
         <Route path="/user" component={UserPageContainer} />
-        <Route path="/cart" component={CartContainer} onEnter={onCartEnter} />
+        <Route path="/cart" component={CartContainer} />
     </Route>
     </Router>
   </Provider>,
