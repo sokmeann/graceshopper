@@ -64,7 +64,7 @@ describe('/api/products', () => {
 
   describe('POST / ', () => {
 
-    it('creates a product', () =>
+    xit('creates a product', () =>
       request(app)
       .post('/api/products')
       .send(otherNewProduct)
@@ -78,7 +78,7 @@ describe('/api/products', () => {
 
   describe('GET /:id ', () => {
 
-    it('retrieves a specific product', () =>
+    xit('retrieves a specific product', () =>
       request(app)
         .get('/api/products/1')
         .then(res => {
@@ -156,4 +156,3 @@ describe('/api/products', () => {
 
 
 })
-
