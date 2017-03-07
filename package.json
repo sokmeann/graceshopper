@@ -7,7 +7,7 @@
     "validate": "check-node-version --node '>= 6.7.0'",
     "setup": "./bin/setup",
     "prep": "npm run validate && npm run setup",
-    "postinstall": "npm run prep && npm run build",
+    "postinstall": "npm run prep && npm run build && npm run seed",
     "build": "webpack",
     "build-css": "node-sass -w assets/stylesheets/drygoods.scss -o public/stylesheets",
     "build-watch": "npm run build -- -w",
