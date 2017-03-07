@@ -43,6 +43,7 @@ export default (state = initialCartState, action) => {
 }
 
 export const receiveOrder = order => {
+  console.log(order)
   return {
     type: RETRIEVE_CART,
     id: order.id,
@@ -70,11 +71,21 @@ export const newGuestCart = (userId) => {
   }
 }
 
-export const emptyCart = (orderId, userId) => {
+// export const emptyCart = (orderId, userId) => {
+//
+//   return axios.delete(`/api/orders/${orderId}`)
+//   .then(() => axios.post(`/api/orders/user/${userId}`))
+//   .then(() => fetchCart(userId))
+//   .catch(console.error('failed to Empty cart'))
+//
+// }
 
-  return axios.delete(`/api/orders/${orderId}`)
-  .then(() => axios.post(`/api/orders/user/${userId}`))
-  .then(() => fetchCart(userId))
-  .catch(console.error('failed to Empty cart'))
-
+export const removeItem = (orderId, productId) => {
+  return dispatch => {
+    return axios.delete(`/api/orders/${orderId}/products/${productId}`)
+    .then(() => axios.get(`/api/orders/${orderId}`))
+    .then(order => {
+      dispatch(receiveOrder(order.data[0]))
+    })
+  }
 }
