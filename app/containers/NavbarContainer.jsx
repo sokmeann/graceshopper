@@ -24,9 +24,11 @@ class Navbar extends Component {
     super(props)
     this.state = {
       search: '',
+      isHide: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.hideBar = this.hideBar.bind(this)
   }
 
   handleChange(event){
@@ -41,12 +43,25 @@ class Navbar extends Component {
   // *********** call function to filter and display products
   }
 
+  hideBar(){
+     let {isHide} = this.state
+     window.scrollY > 900 ? !isHide && this.setState({isHide: true}) : isHide && this.setState({isHide: false}) //eslint-disable-line
+
+  }
+  componentDidMount(){
+      window.addEventListener('scroll', this.hideBar)
+  }
+  componentWillUnmount(){
+       window.removeEventListener('scroll', this.hideBar)
+  }
+
   render() {
     const searchedProducts = this.props.products.filter(product => product.title.match(this.state.search))
     const user = this.props.user
+    let classHide = this.state.isHide ? '':'hide'
 
     return (
-      <nav className="navbar navbar-default">
+      <nav id="nav" className={"navbar navbar-default navbar-fixed-top " + classHide}>
         <div className="container-fluid">
           {/*<!-- Brand and toggle get grouped for better mobile display -->*/}
           <div className="navbar-header">
