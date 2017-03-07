@@ -59,7 +59,7 @@ html body {
 form#registration {
   padding: 30px;
   font-family: 'Arial';
-  align-items: center; }
+  align-content: center; }
 
 #searchBar {
   width: 85%;

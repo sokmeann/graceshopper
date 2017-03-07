@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { postUser } from '../reducers/users'
 
 class userRegistration extends Component {
   constructor(){
     super()
     this.state = {
-      firstName: '',
-      lastName: '',
+      firstname: '',
+      lastname: '',
+      status: 'REGISTERED',
       email: '',
       password: ''
     }
@@ -17,26 +20,40 @@ class userRegistration extends Component {
   */
   handleChange(event){
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.id]: event.target.value
     })
   }
+
+  reset () {
+    this.setState({
+      firstname: '',
+      lastname: '',
+      status: 'REGISTERED',
+      email: '',
+      password: ''
+    })
+  }
+
   handleSubmit(event){
     event.preventDefault()
-    // *********** post request to User.
+    this.props.postUser(this.state)
+    .then(() => this.reset())
+    .catch(console.error.bind(console))
   }
+
   render(){
     return (
       <form id="registration" onSubmit={this.handleSubmit}>
-        <img id="logo" src="/images/DRYgoods.png" width="350" />
+        <img id="logo" src="/images/DRYgoods.png" width="550" />
         <h2><i className="fa fa-user" /> Create Account</h2>
         <label>First Name</label>
         <br />
-        <input id="firstName" onChange={this.handleChange} />
+        <input id="firstname" onChange={this.handleChange} />
         <br />
         <br />
         <label>Last Name</label>
         <br />
-        <input id="lastName" onChange={this.handleChange} />
+        <input id="lastname" onChange={this.handleChange} />
         <br />
         <br />
         <label>Email</label>
@@ -55,4 +72,6 @@ class userRegistration extends Component {
   }
 }
 
-export default userRegistration
+const mapDispatchToProps = { postUser }
+
+export default connect(null, mapDispatchToProps)(userRegistration)

@@ -71,7 +71,7 @@ class Navbar extends Component {
               <span className="icon-bar" />
               <span className="icon-bar" />
             </button>
-            <a id="navlogo" className="navbar-brand" href="/">DRYgoods</a>
+            <a id="navlogo" className="navbar-brand" href="/"><img src="/images/DRYgoodsLogo.png" width="95" /></a>
           </div>
 
           {/*<!-- Collect the nav links, forms, and other content for toggling -->*/}
