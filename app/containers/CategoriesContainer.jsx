@@ -1,35 +1,13 @@
 import { connect } from 'react-redux'
 import CategoriesGrid from '../components/CategoriesGrid'
 
-const groupProductsByCategory = (products) => {
+import { getCategories } from '../utils'
 
-  return [
-    'Sofas',
-    'Chairs',
-    'Umbrellas',
-    'Tables'
-  ]
-
-  // console.log(products)
-  //
-  // if (products) {
-  //   return (products.reduce((categories, product) => {
-  //     const category = product.category
-  //     categories[category] = categories[category] || []
-  //     categories[category] = [...categories[category], product]
-  //     return categories
-  //   }, {}))
-  // } else {
-  //   return null
-  // }
-}
-
-const mapStateToProps = function (state) {
-  return {
+const mapStateToProps = (state) => ({
     products: state.products.products,
-    categories: groupProductsByCategory()
+    categories: state.products.categories
   }
-}
+)
 
 const CategoriesContainer = connect(
   mapStateToProps
