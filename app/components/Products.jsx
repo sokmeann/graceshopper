@@ -14,7 +14,7 @@ const Products = (props) => {
             return (
               <div className="product col-lg-4 col-xs-12" key={product.id}>
                 <Link to={`/products/${product.title}`}>
-                  <h5>{product.title}</h5>
+                  <h5>{product.title.replace('-', ' ')}</h5>
                   <img className="productImage" src={product.imgUrls[0]} />
                 </Link>
               </div>

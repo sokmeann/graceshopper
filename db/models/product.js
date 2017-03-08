@@ -35,11 +35,15 @@ const Product = db.define('products', {
   }
 }, {
     hooks: {
-
       // Need to ensure there are no spaces to make
       // web routes / requests easier
       beforeCreate: function (product) {
         product.title = product.title.replace(' ', '-')
+    },
+    getterMethods: {
+      productName: function() {
+        return this.title.replace('-', ' ')
+      }
     }
   }
 })

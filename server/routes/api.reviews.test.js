@@ -91,7 +91,7 @@ describe('Reviews', () => {
       it('DELETE one Review', (done) => {
           request(app).delete('/api/reviews/1')
           .expect(204)
-          .end((err, res) => {
+          .end((err, res) => { // eslint-disable-line
             if (err) return done(err)
             return Review.findById(1)
             .then((review) => {
