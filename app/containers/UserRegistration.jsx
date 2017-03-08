@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { postUser } from '../reducers/users'
+import { browserHistory } from 'react-router'
 
 class userRegistration extends Component {
   constructor(){
@@ -39,6 +40,7 @@ class userRegistration extends Component {
     this.props.postUser(this.state)
     .then(() => this.reset())
     .catch(console.error.bind(console))
+    browserHistory.push('/cart/checkout')
   }
 
   render(){

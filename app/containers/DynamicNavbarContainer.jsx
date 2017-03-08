@@ -7,10 +7,9 @@ import Login from '../components/LoginNav'
 import LoggedIn from '../components/LoggedIn'
 import Logout from '../components/Logout'
 
-// get products from state to match with input in search
 const mapStateToProps = (state) => {
   return {
-    products: state.products,
+    cart: state.cart,
     user: state.auth.user
   }
 }
@@ -19,7 +18,6 @@ class Navbar extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      products: props.products,
       isHide: true
     }
     this.hideBar = this.hideBar.bind(this)
@@ -33,6 +31,7 @@ class Navbar extends Component {
     //  this.prev = window.scrollY
   }
   componentDidMount(){
+      this.hideBar()
       window.addEventListener('scroll', this.hideBar)
   }
   componentWillUnmount(){
@@ -41,6 +40,7 @@ class Navbar extends Component {
 
   render() {
     const user = this.props.user
+    const cart = this.props.cart
     let classHide = this.state.isHide ? '' : 'hide'
 
     return (
@@ -62,22 +62,17 @@ class Navbar extends Component {
             <ul className="nav navbar-nav">
               <li className="active"><Link to="/category">Browse <span className="sr-only">(current)</span></Link></li>
               <li><a href="#">Link</a></li>
-              <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret" /></a>
-                <ul className="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" className="divider" />
-                  <li><a href="#">Separated link</a></li>
-                  <li role="separator" className="divider" />
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li><SearchBarContainer /></li>
-              <li><Link to="/cart"><i className="fa fa-shopping-cart fa-lg" /> Cart</Link></li>
+              <li>
+                {
+                  cart && cart.products.length ?
+                  <Link to="/cart"><i className="fa fa-shopping-cart fa-lg" /> Cart( {cart.products.length} )</Link>
+                  :
+                  <Link to="/cart"><i className="fa fa-shopping-cart fa-lg" /> Cart</Link>
+                }
+              </li>
             <li>
               {
                 user && user.status !== 'GUEST' && user !== null ? <LoggedIn user={user} /> : <Login />
