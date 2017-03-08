@@ -62,7 +62,7 @@ class Navbar extends Component {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li><SearchBarContainer /></li>
-              <li><Link to="/cart"><a><i className="fa fa-shopping-cart fa-lg" /> Cart</a></Link></li>
+              <li><Link to="/cart"><i className="fa fa-shopping-cart fa-lg" /> Cart</Link></li>
             <li>
               {
                 user && user.status !== 'GUEST' && user !== null ? <LoggedIn user={user} /> : <Login />

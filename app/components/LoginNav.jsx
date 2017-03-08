@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 
 const Login = () => {
   return (
-      <Link to="/login"><a><i className="fa fa-user-o fa-lg" /> Login</a></Link>
+      <Link to="/login"><i className="fa fa-user-o fa-lg" /> Login</Link>
   )
 }
 
