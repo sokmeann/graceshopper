@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
 import SearchBarContainer from './SearchBarContainer'
-import Login from '../components/Login'
+import Login from '../components/LoginNav'
 import LoggedIn from '../components/LoggedIn'
+import Logout from '../components/Logout'
 
 // import { selectProducts } from '../reducers/products'
 
@@ -61,13 +62,17 @@ class Navbar extends Component {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li><SearchBarContainer /></li>
-              <li><a><i className="fa fa-shopping-cart fa-lg" /> Cart</a></li>
+              <li><Link to="/cart"><a><i className="fa fa-shopping-cart fa-lg" /> Cart</a></Link></li>
             <li>
               {
                 user && user.status !== 'GUEST' && user !== null ? <LoggedIn user={user} /> : <Login />
               }
             </li>
-              <li><a><i className="fa fa-user-o fa-lg" /> Logout</a></li>
+            <li>
+                {
+                  user && user.status !== 'GUEST' && user !== null ? <Logout /> : ''
+                }
+              </li>
             </ul>
           </div>
         </div>
