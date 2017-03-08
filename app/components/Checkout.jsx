@@ -1,13 +1,24 @@
 import React from 'react'
 import {Link} from 'react-router'
 
-const ProductsList = (props) => {
+const Checkout = (props) => {
 
   const products = props.products
 
   return (
     <div id="products">
-      <h2>Hello, {props.name}! Here is your current cart:</h2>
+      <h2>Hello, {props.name}! Ready for checkout?</h2>
+      <form className="col-lg-8">
+        <label>
+          Name: <input type="text" value={props.fullname}  />
+        </label>
+        <br />
+        <label>
+          Shipping Address: <textarea type="text" value={props.address}  />
+        </label>
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
       <div className="row col-lg-4">
         <h3>Total: ${props.total}</h3>
         <button>
@@ -17,7 +28,7 @@ const ProductsList = (props) => {
         </button>
       </div>
 
-      <div className="row">
+  {/*    <div >
       {
         products && products.map(product => {
           return (
@@ -36,19 +47,15 @@ const ProductsList = (props) => {
         })
       }
       </div>
-
-      <div className="row col-lg-4">
-        <h3>Total: ${props.total}</h3>
-        <button>
-          {
-            props.name === 'Guest' ? <Link to={'/cart/checkout'}>Guest Checkout</Link> : <Link to={'cart/checkout'}>Checkout, {props.name}</Link>
-          }
-        </button>
-      </div>
+      <div className="row">
+      {
+        props.name !== 'Guest' ? <Link to={'/cart/checkout'}>Guest Checkout</Link> : <Link to={'cart/checkout'}>Checkout, {props.name}</Link>
+      }
+      </div>*/}
 
     </div>
   )
 }
 
 
-export default ProductsList
+export default Checkout
