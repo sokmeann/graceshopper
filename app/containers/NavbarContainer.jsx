@@ -13,7 +13,8 @@ import Logout from '../components/Logout'
 const mapStateToProps = (state) => {
   return {
     products: state.products,
-    user: state.auth.user
+    user: state.auth.user,
+    cart: state.cart
   }
 }
 
@@ -27,6 +28,7 @@ class Navbar extends Component {
 
   render() {
     const user = this.props.user
+    const cart = this.props.cart
 
     return (
       <nav className="navbar navbar-default navbar-fixed-top">
@@ -62,16 +64,24 @@ class Navbar extends Component {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li><SearchBarContainer /></li>
-              <li><Link to="/cart"><i className="fa fa-shopping-cart fa-lg" /> Cart</Link></li>
-            <li>
-              {
-                user && user.status !== 'GUEST' && user !== null ? <LoggedIn user={user} /> : <Login />
-              }
-            </li>
-            <li>
+              <li>
                 {
-                  user && user.status !== 'GUEST' && user !== null ? <Logout /> : ''
+                  cart && cart.products.length ?
+                  <Link to="/cart"><i className="fa fa-shopping-cart fa-lg" /> Cart( {cart.products.length} )</Link>
+                  :
+                  <Link to="/cart"><i className="fa fa-shopping-cart fa-lg" /> Cart</Link>
                 }
+
+              </li>
+              <li>
+                {
+                  user && user.status !== 'GUEST' && user !== null ? <LoggedIn user={user} /> : <Login />
+                }
+              </li>
+              <li>
+                  {
+                    user && user.status !== 'GUEST' && user !== null ? <Logout /> : ''
+                  }
               </li>
             </ul>
           </div>
