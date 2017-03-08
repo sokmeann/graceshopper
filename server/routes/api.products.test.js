@@ -64,23 +64,23 @@ describe('/api/products', () => {
 
   describe('POST / ', () => {
 
-    xit('creates a product', () =>
+    it('creates a product', () =>
       request(app)
       .post('/api/products')
       .send(otherNewProduct)
       .expect(201)
       .then(res => {
         const product = res.body
-        expect(product.title).to.equal(otherNewProduct.title)
+        expect(product.title.replace('-', ' ')).to.equal(otherNewProduct.title)
       })
     )
   })
 
-  describe('GET /:id ', () => {
+  describe('GET /:productName ', () => {
 
-    xit('retrieves a specific product', () =>
+    it('retrieves a specific product', () =>
       request(app)
-        .get('/api/products/1')
+        .get('/api/products/Test-Product')
         .then(res => {
           const product = res.body
           expect(product.title).to.equal(testProduct.title)
@@ -145,12 +145,12 @@ describe('/api/products', () => {
       .send({title: 'Tested Product'})
     )
 
-    xit('updates a product by id', () =>
+    it('updates a product by id', () =>
 
       request(app)
-      .get('/api/products/1')
-      .then(res => expect(res.body.title).to.eql('Tested Product'))
-      .done()
+      .put('/api/products/1')
+      .send({title: 'Tested Product'})
+      .expect(204)
     )
   })
 

@@ -40,6 +40,6 @@ module.exports = require('express').Router() // eslint-disable-line new-cap
     Product.findById(req.params.id)
     .then(product => product.update(req.body))
     .then(() => {
-      res.sendStatus(200)
+      res.sendStatus(204)
     })
     .catch(next))
