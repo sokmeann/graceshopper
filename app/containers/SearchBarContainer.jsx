@@ -42,8 +42,6 @@ class SearchBar extends Component {
 
 render() {
 
-
-  console.log('searchbar ', this.props);
   return (
     <div>
       <div id="searchbar" className="input-group">

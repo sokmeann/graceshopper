@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Product = (props) => {
-  console.log("PRODUCT PROPS", props)
   const product = props.selectedProduct
     return (
       <div id="product">

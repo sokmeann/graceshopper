@@ -1,12 +1,12 @@
 'use strict'; // eslint-disable-line semi
 
-const express = require('express')
-const router = express.Router() // eslint-disable-line new-cap
+// const express = require('express')
+// const router = express.Router() // eslint-disable-line new-cap
 const db = require('APP/db')
 const Review = db.model('reviews')
 
 
-router
+module.exports = require('express').Router()
   .get('/product/:productId', (req, res, next) => {
     let productId = req.params.productId
     Review.findAll({
@@ -33,7 +33,7 @@ router
     .catch(next)
   })
 
-  .post('user/:userId/product/:productId', (req, res, next) => {
+  .post('/user/:userId/product/:productId', (req, res, next) => {
     let userId = req.params.userId
     let productId = req.params.productId
     return Review.create(req.body)
@@ -61,4 +61,3 @@ router
     .catch(next)
   })
 
-module.exports = router

@@ -2,7 +2,6 @@ import React from 'react'
 import Login from './Login'
 
 const UserPage = (props) =>  {
-console.log(props)
 return (
   <div>
     {props.user ?

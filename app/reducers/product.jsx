@@ -14,7 +14,7 @@ const initialState = {
     quantity: 0,
     imgUrls: []
   },
-  reviews: null
+  reviews: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -27,12 +27,11 @@ const reducer = (state = initialState, action) => {
       newState.selectedProduct = action.selectedProduct
     break
     case POST_REVIEW:
-      newState.reviews = action.review
+      newState.reviews = [...state.reviews, action.review]
       break
     default:
       return state
   }
-  console.log(newState)
   return newState
 }
 
@@ -58,7 +57,7 @@ export const postReview = review => ({
 
 export const createReview = (prodId, userId, review) => (
   dispatch =>
-    axios.post(`api/reviews/user/${userId}/product/${prodId}`, review)
+    axios.post(`/api/reviews/user/${userId}/product/${prodId}`, review)
     .then(res => res.data)
     .then(newReview => dispatch(postReview(newReview)))
     .catch(console.error('review failed to post'))
