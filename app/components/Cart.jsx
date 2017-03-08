@@ -23,7 +23,7 @@ const ProductsList = (props) => {
           return (
             <div className="category col-lg-4 col-md-4" key={ product.id }>
               <Link to={`/products/${product.id}`}>
-                <img className="productImage" src={product.imgUrls[0]} />
+                <img className="cartimg" src={product.imgUrls[0]} />
               </Link>
                 <div className="productName">
                   <h5>{ product.title }</h5>
