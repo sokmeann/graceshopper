@@ -10,7 +10,7 @@ class SplashContainer extends Component { // eslint-disable-line
       <div id="splash">
         <DynamicNavbarContainer />
         <MainLogo />
-        <div className="maindiv white col-lg-10 col-lg-offset-1">
+        <div id="splashmain" className="white col-lg-10 col-lg-offset-1">
           <CategoriesContainer />
         </div>
       </div>
