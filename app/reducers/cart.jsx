@@ -9,7 +9,7 @@ const CHECKOUT = 'CHECKOUT'
 const initialCartState = {
   orderId: null,
   status: '',
-  // user_id: null, //eslint-disable-line camelcase
+  user_id: null, //eslint-disable-line camelcase
   products: [],
   total: 0
 

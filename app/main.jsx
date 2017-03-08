@@ -55,7 +55,7 @@ const onProductEnter = (nextRouterState) => {
 //needs to be cleaned up
 render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
       <Route path="/" component={SplashContainer} onEnter={onHomeEnter} />
       <Route path="/home" component={Home} onEnter={onHomeEnter}>
         <IndexRedirect to="/category" />
