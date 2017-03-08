@@ -5,22 +5,20 @@ import QtyAddtoCart from '../components/QtyAddtoCart'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => {
+  console.log('state', state)
   return {
     selectedProduct: state.product.selectedProduct
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   // your code here
-// }
+class ProductContainer extends Component { // eslint-disable-line
 
-class ProductContainer extends Component {
   render() {
     return (
       <div id="product">
         <Product selectedProduct={ this.props.selectedProduct } />
         <QtyAddtoCart />
-        <Reviews prodId={this.props.selectedProduct.id} />
+        <Reviews />
       </div>
     )
   }

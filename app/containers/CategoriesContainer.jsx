@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import CategoriesGrid from '../components/CategoriesGrid'
 
-import { getCategories } from '../utils'
+// import { getCategories } from '../utils'
 
 const mapStateToProps = (state) => ({
     products: state.products.products,

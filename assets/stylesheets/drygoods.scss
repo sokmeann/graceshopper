@@ -28,26 +28,7 @@ div .white {
   background-color: #FFFFFF;
 }
 
-// .navbar {
-//   .logo {
-//     font-size: 25px;
-//     font-weight: bold;
-//     padding-top: 25px;
-//   }
-//   .search {
-//     padding-top: 25px
-//   }
-//   .cart {
-//     font-size: 18px;
-//     font-weight: bold;
-//     padding-top: 25px
-//   }
-//   .login {
-//     font-size: 18px;
-//     font-weight: bold;
-//     padding-top: 25px
-//   }
-// }
+
 #mainlogo {
   height: 100vh;
   width: auto;
@@ -55,7 +36,11 @@ div .white {
 
 #maindiv {
   margin-top: 100px;
-  margin-bottom: 100px;
+  padding-bottom: 150px;
+}
+#splashmain {
+  margin-top: 100px;
+  padding-bottom: 150px;
 }
 
 #logoimg {
@@ -68,7 +53,6 @@ div .white {
 
 #product {
   padding: 30px;
-  font-family: 'Arial';
   .photodisplay {
     display: inline-block;
   }
@@ -86,19 +70,13 @@ div .white {
     margin-bottom: 0px;
   }
   #qtyselector {
-    width: 25px;
+    width: 60px;
     padding: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #fffcbf;
+
   }
   #addtocartbtn {
     padding: 5px;
     margin-left: 5px;
-    border-radius: 5px;
-    border-color: none;
-    border: none;
-    background-color: #87efff;
   }
   .fa {
     color: #ffe900
@@ -106,9 +84,9 @@ div .white {
 }
 
 .img-thumb {
-  max-width: 60%;
-  margin-bottom: 10%;
-  margin-right: 15%;
+  float: left;
+  max-width: 72px;
+  margin-right: 10px;
 }
 
 .img-main {
@@ -118,7 +96,6 @@ div .white {
 
 form#registration {
   padding: 30px;
-  font-family: 'Arial';
   align-content: center;
 }
 
@@ -145,13 +122,8 @@ form#registration {
 }
 
 .qty {
-  min-width: 50px
-}
-
-.category {
-  .cartimg {
-    max-width: 40px;
-  }
+  width: 60px;
+  float: left;
 }
 
 // Modals boilerplate CSS

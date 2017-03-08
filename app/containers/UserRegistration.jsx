@@ -43,31 +43,36 @@ class userRegistration extends Component {
 
   render(){
     return (
-      <form id="registration" onSubmit={this.handleSubmit}>
-        <img id="logo" src="/images/DRYgoods.png" width="550" />
-        <h2><i className="fa fa-user" /> Create Account</h2>
-        <label>First Name</label>
-        <br />
-        <input id="firstname" onChange={this.handleChange} />
-        <br />
-        <br />
-        <label>Last Name</label>
-        <br />
-        <input id="lastname" onChange={this.handleChange} />
-        <br />
-        <br />
-        <label>Email</label>
-        <br />
-        <input id="email" onChange={this.handleChange} />
-        <br />
-        <br />
-        <label>Password</label>
-        <br />
-        <input id="password" onChange={this.handleChange} />
-        <br />
-        <br />
-        <button>Create Account</button>
-      </form>
+      <div className="container">
+        <div className="row">
+          <form id="registration" className="form-signin mg-btm form-group" onSubmit={this.handleSubmit}>
+            <h2><i className="fa fa-user" /> Create Account</h2>
+            <label>First Name</label>
+            <br />
+            <input id="firstname" className="form-control" onChange={this.handleChange} />
+            <br />
+            <br />
+            <label>Last Name</label>
+            <br />
+            <input id="lastname" className="form-control" onChange={this.handleChange} />
+            <br />
+            <br />
+            <label>Email</label>
+            <br />
+            <input id="email" className="form-control" onChange={this.handleChange} />
+            <br />
+            <br />
+            <label>Password</label>
+            <br />
+            <input id="password" className="form-control" onChange={this.handleChange} />
+            <br />
+            <br />
+            <button className="btn btn-large btn-primary pull-right">Create Account</button>
+            <br />
+            <br />
+          </form>
+        </div>
+      </div>
     )
   }
 }

@@ -31,7 +31,7 @@ const Product = db.define('products', {
     type: Sequelize.INTEGER
   },
   imgUrls: {
-    type: Sequelize.ARRAY(Sequelize.STRING)
+    type: Sequelize.ARRAY(Sequelize.STRING) // eslint-disable-line
   }
 }, {
     hooks: {
@@ -41,7 +41,7 @@ const Product = db.define('products', {
       beforeCreate: function (product) {
         product.title = product.title.replace(' ', '-')
     }
-  }  
+  }
 })
 
 module.exports = Product

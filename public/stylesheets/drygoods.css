@@ -33,6 +33,11 @@ div .white {
   margin-top: 100px;
   margin-bottom: 100px;
   background-attachment: fixed; }
+  padding-bottom: 150px; }
+
+#splashmain {
+  margin-top: 100px;
+  padding-bottom: 150px; }
 
 #logoimg {
   width: 70%;
@@ -43,8 +48,7 @@ div .white {
   background-attachment: fixed; }
 
 #product {
-  padding: 30px;
-  font-family: 'Arial'; }
+  padding: 30px; }
   #product .photodisplay {
     display: inline-block; }
   #product .reviewtitle {
@@ -57,25 +61,18 @@ div .white {
   #product #lastimg {
     margin-bottom: 0px; }
   #product #qtyselector {
-    width: 25px;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #fffcbf; }
+    width: 60px;
+    padding: 5px; }
   #product #addtocartbtn {
     padding: 5px;
-    margin-left: 5px;
-    border-radius: 5px;
-    border-color: none;
-    border: none;
-    background-color: #87efff; }
+    margin-left: 5px; }
   #product .fa {
     color: #ffe900; }
 
 .img-thumb {
-  max-width: 60%;
-  margin-bottom: 10%;
-  margin-right: 15%; }
+  float: left;
+  max-width: 72px;
+  margin-right: 10px; }
 
 .img-main {
   max-width: 100%;
@@ -83,7 +80,6 @@ div .white {
 
 form#registration {
   padding: 30px;
-  font-family: 'Arial';
   align-content: center; }
 
 #search {
@@ -101,10 +97,8 @@ form#registration {
   max-width: 33%; }
 
 .qty {
-  min-width: 50px; }
-
-.category .cartimg {
-  max-width: 40px; }
+  width: 60px;
+  float: left; }
 
 .modal-overlay-div {
   position: fixed;

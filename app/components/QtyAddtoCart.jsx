@@ -20,15 +20,15 @@ const mapDispatchToProps = (dispatch) => {
 
 class QtyAddtoCart extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       quantity: 1
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-  }  
+  }
 
   handleChange(event) {
     this.setState({
@@ -44,19 +44,20 @@ class QtyAddtoCart extends Component {
       this.state.quantity
     )
   }
-  
+
   render() {
     return (
       <div>
         <input
           id="qtyselector"
-          className="qty"
+          className="form-control qty"
           type="number"
           min="1"
           value={this.state.quantity}
           onChange={this.handleChange}
         />
         <button
+          className="btn btn-primary"
           id="addtocartbtn"
           onClick={this.handleSubmit}
         >
