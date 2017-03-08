@@ -5,27 +5,6 @@ body {
   display: block;
   margin: 0; }
 
-html body {
-  height: 100%;
-}
-
-#categoryImage {
-  height: 100%;
-  background-color: red;
-}
-
-#category {
-  height: 25%;
-  background-color: blue;
-}
-/*html body {
-    background: url('../images/background.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}*/
-
 #product {
   padding: 30px;
   font-family: 'Arial'; }
@@ -74,6 +53,9 @@ form#registration {
 
 .categoryImage {
   max-width: 33%; }
+
+.qty {
+  min-width: 50px; }
 
 .modal-overlay-div {
   position: fixed;
