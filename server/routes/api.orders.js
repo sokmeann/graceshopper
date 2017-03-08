@@ -85,9 +85,10 @@ api.get('/:orderId/products', (req, res, next) => {
 // PUT adds a new product item to the order
 // req.body must have the Product object and quantity
 api.put('/:orderId/products', (req, res, next) => {
-  let productId = req.body.product.id,
-      productPrice = req.body.product.currentPrice,
-      productQuantity = req.body.quantity
+
+  const productId = req.body.product.id
+  const productPrice = req.body.product.currentPrice
+  const productQuantity = req.body.quantity
 
   Order.findOne({ where: { id: req.params.orderId } }) //eslint-disable-line camelcase
   .then(order => order.addProduct(
