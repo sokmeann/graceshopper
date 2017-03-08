@@ -9,7 +9,7 @@ class Home extends Component {
     return (
       <div id="home">
         <NavbarContainer />
-        <div className="white col-lg-10 col-lg-offset-1">
+        <div id="maindiv" className="white col-lg-10 col-lg-offset-1">
           {this.props.children}
         </div>
       </div>

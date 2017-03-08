@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 import { Link, browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 
-
-import store from '../store'
+// import store from '../store'
 import { selectProducts, setSearchedProducts } from '../reducers/products'
 
-import ProductSearch from '../components/ProductSearch'
+// import ProductSearch from '../components/ProductSearch'
 
 
 const mapStateToProps = (state) => {
@@ -30,8 +29,7 @@ class SearchBar extends Component {
   handleChange(event){
 
     let searchedProducts = this.props.products
-    console.log("SEARCHED PRODUCTS", searchedProducts)
-    if(this.props.products && event.target.value !== '') {
+    if (this.props.products && event.target.value !== '') {
       searchedProducts = this.props.products.filter(product => product.title.toLowerCase().match(event.target.value.toLowerCase()))
     }
     this.props.setSearchedProducts(searchedProducts)
@@ -42,14 +40,11 @@ class SearchBar extends Component {
   }
 
 render() {
-
-
-  console.log('searchbar ', this.props);
   return (
-    <div>
-      <div id="searchbar" className="input-group">
+      <div id="search" className="input-group">
         <div className="input-group-addon"><i className="fa fa-search" /></div>
         <input
+          id="searchinput"
           onChange={this.handleChange}
           value={this.state.search}
           className="form-control search-area"
@@ -57,7 +52,6 @@ render() {
           aria-describedby="sizing-addon1"
           />
       </div>
-    </div>
   )
 }
 }
