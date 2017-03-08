@@ -38,8 +38,7 @@ div .white {
   margin-top: 12%; }
 
 #product {
-  padding: 30px;
-  font-family: 'Arial'; }
+  padding: 30px; }
   #product .photodisplay {
     display: inline-block; }
   #product .reviewtitle {
@@ -68,9 +67,9 @@ div .white {
     color: #ffe900; }
 
 .img-thumb {
-  max-width: 60%;
-  margin-bottom: 10%;
-  margin-right: 15%; }
+  float: left;
+  max-width: 72px;
+  margin-right: 10px; }
 
 .img-main {
   max-width: 100%;
@@ -78,7 +77,6 @@ div .white {
 
 form#registration {
   padding: 30px;
-  font-family: 'Arial';
   align-content: center; }
 
 #search {
@@ -97,9 +95,6 @@ form#registration {
 
 .qty {
   min-width: 50px; }
-
-.category .cartimg {
-  max-width: 40px; }
 
 .modal-overlay-div {
   position: fixed;
