@@ -105,6 +105,8 @@ export const emptyCart = (orderId, userId) => {
   .then(() => fetchCart(userId))
   .catch(console.error('failed to Empty cart'))
 
+}
+
 
 export const removeItem = (orderId, productId) => {
   return dispatch => {
