@@ -1,7 +1,7 @@
 import React from 'react'
 import { browserHistory } from 'react-router';
 
-export const LoginForm = ({ login }) => (
+const LoginForm = ({ login }) => (
   <div className="container">
     <div className="row">
   	   <form className="form-signin mg-btm form-group" onSubmit={evt => {
