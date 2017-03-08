@@ -66,7 +66,8 @@ div .white {
 
 .img-main {
   max-width: 100%;
-  margin-bottom: 10%; }
+  margin-bottom: 10%;
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.4)}
 
 form#registration {
   padding: 30px;
@@ -81,7 +82,8 @@ form#registration {
 #categories {
   font-family: 'Roboto', sans-serif; }
   #categories .productImage {
-    max-width: 100%; }
+    max-width: 100%;
+    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3)}
 
 .categoryImage {
   max-width: 33%; }
