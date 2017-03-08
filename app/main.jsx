@@ -20,6 +20,7 @@ import UserRegistration from './containers/UserRegistration'
 import CategoriesGrid from './components/CategoriesGrid'
 import CategoriesContainer from './containers/CategoriesContainer'
 import CartContainer from './containers/CartContainer'
+import CheckoutContainer from './containers/CheckoutContainer'
 
 import { currentUser } from './reducers/auth'
 import { fetchCart, newGuestCart } from './reducers/cart'
@@ -70,6 +71,8 @@ render(
         <Route path="/category/:categoryName" component={ProductsContainer} onEnter={onCategoryEnter} />
         <Route path="/user" component={UserPageContainer} />
         <Route path="/cart" component={CartContainer} />
+        <Route path="/cart/checkout" component={CheckoutContainer} />
+
     </Route>
     </Router>
   </Provider>,

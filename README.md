@@ -1,5 +1,12 @@
 [![Stories in Ready](https://badge.waffle.io/sokmeann/graceshopper.png?label=ready&title=Ready)](https://waffle.io/sokmeann/graceshopper)
 ![CodeShip Status](https://app.codeship.com/projects/41dcba10-e277-0134-2b7e-362663a9fe4c/status?branch=master)
+
+========== DRYGOODS ==========
+
+Link to Heroku deployed website: https://drygoods.herokuapp.com/
+
+========== BONES ==========
+
 # Hi, I'm bones
 
 I'm a happy little skeleton. You can clone me to use as a starter on your projects!
@@ -104,4 +111,3 @@ have a linter someday soon.
 Afterwards,
   - *To deploy:* `npm run deploy-heroku`
   - *To re-seed:* `heroku run npm run seed`
-

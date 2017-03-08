@@ -5,6 +5,7 @@ body {
   display: block;
   margin: 0; }
 
+
 html body {
   height: 100%;
 }
@@ -75,6 +76,9 @@ form#registration {
 
 .productImage {
   max-width: 100%; }
+
+.qty {
+  min-width: 50px; }
 
 .modal-overlay-div {
   position: fixed;
