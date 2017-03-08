@@ -23,7 +23,7 @@ import { currentUser } from './reducers/auth'
 import { fetchCart, newGuestCart } from './reducers/cart'
 import {receiveProducts, fetchProductsByCategory, fetchProducts} from './reducers/products'
 import { setGuest } from './reducers/auth'
-import { fetchProduct } from './reducers/product'
+import { fetchProduct, findReviewsByProduct } from './reducers/product'
 
 //get all products, authenticate user, or initiate guest, fecth cart or initialize new cart
 const onHomeEnter = () => {

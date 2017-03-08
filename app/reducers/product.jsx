@@ -2,16 +2,17 @@ import axios from 'axios'
 
 const FETCHED_REVIEWS = 'FETCHED_REVIEWS'
 const SELECT_PRODUCT = 'SELECT_PRODUCT'
+const POST_REVIEW = 'POST_REVIEW'
 
 const initialState = {
   selectedProduct: {
-    title: 'Umbrella',
-    category: 'Accessories',
-    brand: 'Great Umbrellas',
-    description: 'This umbrella is very heavy',
-    currentPrice: 10.50,
-    quantity: 10,
-    imgUrls: ['http://s7d1.scene7.com/is/image/officedepot/494128_p_23175261lpa?$OD-Dynamic$&wid=350&hei=350', 'http://s7d1.scene7.com/is/image/officedepot/494128_p_23175261lpa?$OD-Dynamic$&wid=110&hei=110']
+    title: '',
+    category: '',
+    brand: '',
+    description: '',
+    currentPrice: 0.00,
+    quantity: 0,
+    imgUrls: []
   },
   reviews: null
 }
@@ -25,6 +26,9 @@ const reducer = (state = initialState, action) => {
     case SELECT_PRODUCT:
       newState.selectedProduct = action.selectedProduct
     break
+    case POST_REVIEW:
+      newState.reviews = action.review
+      break
     default:
       return state
   }
@@ -45,6 +49,19 @@ export const findReviewsByProduct = (prodId) => (
       .then(res => res.data)
       .then(reviews => dispatch(reviewsFetched(reviews)))
       .catch(() => dispatch(reviewsFetched(null)))
+)
+
+export const postReview = review => ({
+  type: POST_REVIEW,
+  review
+})
+
+export const createReview = (prodId, userId, review) => (
+  dispatch =>
+    axios.post(`api/reviews/user/${userId}/product/${prodId}`, review)
+    .then(res => res.data)
+    .then(newReview => dispatch(postReview(newReview)))
+    .catch(console.error('review failed to post'))
 )
 
 ///////////
