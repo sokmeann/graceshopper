@@ -2,13 +2,15 @@ import axios from 'axios'
 
 import { getCategories } from '../utils'
 
-const SELECT_PRODUCTS_BY_CATEGORY = 'SELECT_PRODUCTS_BY_CATEGORY'
+const SELECT_PRODUCTS = 'SELECT_PRODUCTS'
 const RECIEVE_PRODUCTS = 'RECIEVE_PRODUCTS'
 const SET_CATEGORIES = 'SET_CATEGORIES'
+const SET_SEARCHED_PRODUCTS = 'SET_SEARCHED_PRODUCTS'
 
 const initialProductsState = {
   selectedProducts: null,
   allProducts: null,
+  searchedProducts: null,
   categories: null
 }
 
@@ -17,8 +19,11 @@ export default (state = initialProductsState, action) => {
   const newState = Object.assign({}, state)
 
   switch (action.type) {
-    case SELECT_PRODUCTS_BY_CATEGORY:
+    case SELECT_PRODUCTS:
       newState.selectedProducts = action.selectedProducts
+      break
+    case SET_SEARCHED_PRODUCTS:
+      newState.searchedProducts = action.searchedProducts
       break
     case RECIEVE_PRODUCTS:
       newState.allProducts = action.products
@@ -36,9 +41,14 @@ export default (state = initialProductsState, action) => {
 //// ACTION-CREATORS ////
 
 // get products by category
-export const selectProductsByCategory = selectedProducts => ({
-    type: SELECT_PRODUCTS_BY_CATEGORY,
+export const selectProducts = selectedProducts => ({
+    type: SELECT_PRODUCTS,
     selectedProducts
+})
+
+export const setSearchedProducts = searchedProducts => ({
+  type: SET_SEARCHED_PRODUCTS,
+  searchedProducts
 })
 
 export const createCategories = (products) => {
@@ -59,7 +69,7 @@ export const fetchProductsByCategory = categoryName => {
   return dispatch => {
     axios.get(`/api/products/category/${categoryName}`)
       .then(products => {
-        dispatch(selectProductsByCategory(products.data))
+        dispatch(selectProducts(products.data))
       })
   }
 }
