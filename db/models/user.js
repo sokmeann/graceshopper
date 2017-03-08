@@ -10,7 +10,7 @@ const User = db.define('users', {
   firstname: Sequelize.STRING,
   lastname: Sequelize.STRING,
   status: {
-    type: Sequelize.ENUM('GUEST', 'REGISTERED'),
+    type: Sequelize.ENUM('GUEST', 'REGISTERED'), // eslint-disable-line
     defaultValue: 'GUEST'
   },
   isAdmin: {

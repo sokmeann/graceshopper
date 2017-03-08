@@ -13,7 +13,6 @@ import ProductsContainer from './containers/ProductsContainer'
 import ProductContainer from './containers/ProductContainer'
 import UserRegistration from './containers/UserRegistration'
 
-import CategoriesGrid from './components/CategoriesGrid'
 import CategoriesContainer from './containers/CategoriesContainer'
 import CartContainer from './containers/CartContainer'
 
@@ -22,9 +21,8 @@ import CheckoutContainer from './containers/CheckoutContainer'
 
 import { currentUser } from './reducers/auth'
 import { fetchCart, newGuestCart } from './reducers/cart'
-import {receiveProducts, fetchProductsByCategory, fetchProducts} from './reducers/products'
-import { setGuest } from './reducers/auth'
-import { fetchProduct, findReviewsByProduct } from './reducers/product'
+import { fetchProductsByCategory, fetchProducts} from './reducers/products'
+import { fetchProduct } from './reducers/product'
 
 //get all products, authenticate user, or initiate guest, fecth cart or initialize new cart
 const onHomeEnter = () => {

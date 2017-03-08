@@ -6,7 +6,7 @@ const db = require('APP/db')
 const Review = db.model('reviews')
 
 
-module.exports = require('express').Router()
+module.exports = require('express').Router() // eslint-disable-line
   .get('/product/:productId', (req, res, next) => {
     let productId = req.params.productId
     Review.findAll({
@@ -60,4 +60,3 @@ module.exports = require('express').Router()
     })
     .catch(next)
   })
-

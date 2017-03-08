@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
-import { getCategories } from '../utils'
+// import { getCategories } from '../utils'
 
 const CategoriesGrid = (props) => {
 

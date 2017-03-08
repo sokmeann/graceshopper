@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Link, browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 
 // import store from '../store'
-import { selectProducts, setSearchedProducts } from '../reducers/products'
+import { setSearchedProducts } from '../reducers/products'
 
 // import ProductSearch from '../components/ProductSearch'
 

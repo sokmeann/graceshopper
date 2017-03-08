@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
 import NavbarContainer from '../containers/NavbarContainer'
-import MainLogo from '../components/Splash'
 // import Footer from '../components/Footer'
 
-class Home extends Component {
+class Home extends Component { // eslint-disable-line
   render() {
     return (
       <div id="home">
