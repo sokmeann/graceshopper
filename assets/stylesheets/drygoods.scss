@@ -113,7 +113,9 @@ form#registration {
   }
   // PRODUCT IMAGE
   .productImage {
-    max-width: 100%
+      max-width: 100%;
+      margin-bottom: 8%;
+      box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3); 
   }
 }
 
