@@ -14,9 +14,13 @@ html body {
   background-color: red;
 }
 
-#category {
+.category {
   height: 25%;
   background-color: blue;
+}
+
+#searchbar {
+
 }
 /*html body {
     background: url('../images/background.jpg') no-repeat center center fixed;
@@ -59,7 +63,7 @@ html body {
 form#registration {
   padding: 30px;
   font-family: 'Arial';
-  align-content: center; }
+  align-items: center; }
 
 #searchBar {
   width: 85%;
@@ -70,10 +74,7 @@ form#registration {
   padding: 3px; }
 
 .productImage {
-  max-width: 33%; }
-
-.categoryImage {
-  max-width: 33%; }
+  max-width: 100%; }
 
 .modal-overlay-div {
   position: fixed;

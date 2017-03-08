@@ -1,50 +1,45 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
 
-import SearchBar from '../components/SearchBar'
-import Products from '../components/Products'
+import SearchBarContainer from './SearchBarContainer'
 import Login from '../components/Login'
 import LoggedIn from '../components/LoggedIn'
 
-
-import store from '../store'
-import { selectProducts } from '../reducers/products'
+// import { selectProducts } from '../reducers/products'
 
 // get products from state to match with input in search
 const mapStateToProps = (state) => {
-  // const products = state.products
-  // console.log('maptoprops', state)
   return {
     products: state.products,
     user: state.auth.user
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    selectProducts ({searchedProducts}) {
-      dispatch(selectProducts(searchedProducts))
-    }
-  }
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     selectProducts ({searchedProducts}) {
+//       dispatch(selectProducts(searchedProducts))
+//     }
+//   }
+// }
 
 class Navbar extends Component {
   constructor (props) {
     super(props)
     this.state = {
       products: props.products,
-      isHide: false
+      isHide: true
     }
-    // this.handleChange = this.handleChange.bind(this)
-    // this.handleSubmit = this.handleSubmit.bind(this)
     this.hideBar = this.hideBar.bind(this)
   }
 
   hideBar(){
      let {isHide} = this.state
-     window.scrollY > 200 ? !isHide && this.setState({isHide: true}) : isHide && this.setState({isHide: false}) //eslint-disable-line
+     window.scrollY > this.prev ? //eslint-disable-line
+     ! isHide && this.setState({isHide: true})
+     : isHide && this.setState({isHide: false})
 
+     this.prev = window.scrollY
   }
   componentDidMount(){
       window.addEventListener('scroll', this.hideBar)
@@ -54,13 +49,12 @@ class Navbar extends Component {
   }
 
   render() {
-    const products = this.props.products
-    console.log('from nav products',products)
+    const products = this.props.products.allProducts
     const user = this.props.user
     let classHide = this.state.isHide ? '' : 'hide'
 
     return (
-      <nav id="nav" className={'navbar navbar-default navbar-fixed-top ' + classHide}>
+      <nav className={'navbar navbar-default navbar-fixed-top ' + classHide}>
         <div className="container-fluid">
           {/*<!-- Brand and toggle get grouped for better mobile display -->*/}
           <div className="navbar-header">
@@ -91,8 +85,8 @@ class Navbar extends Component {
                 </ul>
               </li>
             </ul>
-            <div className="navbar-form navbar-left">
-              <SearchBar products={products} />
+            <div>
+              <SearchBarContainer />
             </div>
             <ul className="nav navbar-nav navbar-right">
             {
@@ -107,5 +101,5 @@ class Navbar extends Component {
 }
 
 export default connect(
-  mapStateToProps, mapDispatchToProps
+  mapStateToProps
 )(Navbar)

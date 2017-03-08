@@ -5,10 +5,12 @@ import { getCategories } from '../utils'
 const SELECT_PRODUCTS = 'SELECT_PRODUCTS'
 const RECIEVE_PRODUCTS = 'RECIEVE_PRODUCTS'
 const SET_CATEGORIES = 'SET_CATEGORIES'
+const SET_SEARCHED_PRODUCTS = 'SET_SEARCHED_PRODUCTS'
 
 const initialProductsState = {
   selectedProducts: null,
   allProducts: null,
+  searchedProducts: null,
   categories: null
 }
 
@@ -19,6 +21,9 @@ export default (state = initialProductsState, action) => {
   switch (action.type) {
     case SELECT_PRODUCTS:
       newState.selectedProducts = action.selectedProducts
+      break
+    case SET_SEARCHED_PRODUCTS:
+      newState.searchedProducts = action.searchedProducts
       break
     case RECIEVE_PRODUCTS:
       newState.allProducts = action.products
@@ -39,6 +44,11 @@ export default (state = initialProductsState, action) => {
 export const selectProducts = selectedProducts => ({
     type: SELECT_PRODUCTS,
     selectedProducts
+})
+
+export const setSearchedProducts = searchedProducts => ({
+  type: SET_SEARCHED_PRODUCTS,
+  searchedProducts
 })
 
 export const createCategories = (products) => {

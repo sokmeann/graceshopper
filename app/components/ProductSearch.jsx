@@ -1,11 +1,17 @@
 import React from 'react'
 import {Link} from 'react-router'
+import {connect} from 'react-redux'
+
+const mapStateToProps = (state) => {
+  return {
+    products: state.products.searchedProducts
+  }
+}
 
 const ProductSearch = (props) => {
 
   const products = props.products
-console.log(products)
-  if (products) {
+  if (products !== undefined) {
     return (
       <div id="categories">
         <h3>Your Search:</h3>
@@ -30,4 +36,4 @@ console.log(products)
 }
 
 
-export default ProductSearch
+export default connect(mapStateToProps)(ProductSearch)

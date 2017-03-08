@@ -65,6 +65,7 @@ render(
         <Route path="/userRegistration" component={UserRegistration} />
         <Route path="/products/:productName" component={ProductContainer} onEnter={onProductEnter} />
         <Route path="/search" component={ProductSearch} />
+        <Route path="/search/:term" component={ProductSearch} />
         <Route path="/category" component={CategoriesContainer} />
         <Route path="/category/:categoryName" component={ProductsContainer} onEnter={onCategoryEnter} />
         <Route path="/user" component={UserPageContainer} />
