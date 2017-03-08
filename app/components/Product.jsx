@@ -13,8 +13,10 @@ const Product = (props) => {
                 <img className="img-main" src={ `${product.imgUrls[0]}` } />  
               </div>   
               <div className="col-sm-6">
-                <img className="img-thumb" src={ `${product.imgUrls[0]}` } />
-                <img className="img-thumb" src={ `${product.imgUrls[0]}` } />
+                <img className="img-thumb hidden-xs" src={ `${product.imgUrls[0]}` } />
+                <img className="img-thumb hidden-xs" src={`${product.imgUrls[0]}`} />
+                <img style={{ marginRight: '5%' }} className="img-thumb col-5-xs hidden-sm hidden-lg hidden-md" src={ `${product.imgUrls[0]}` } />
+                <img style={{ marginRight: '0%' }} className="img-thumb col-5-xs hidden-sm hidden-lg hidden-md" src={ `${product.imgUrls[0]}` } />
              </div>
             <br />
             <br />
