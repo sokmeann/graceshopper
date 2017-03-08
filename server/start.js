@@ -39,6 +39,11 @@ module.exports = app
     keys: [process.env.SESSION_SECRET || 'an insecure secret key'],
   }))
 
+  // github redirect
+  .get('/github', (req, res) => {
+    res.redirect('https://github.com/sokmeann/graceshopper/')
+  })
+
   // Body parsing middleware
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
