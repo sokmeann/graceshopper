@@ -65,7 +65,8 @@ class Reviews extends Component {
         <h4>Post a Review</h4>
         {
           this.props.user && this.props.user.status === 'REGISTERED' &&
-          <form onSubmit={this.handleSubmit}
+          <form
+            onSubmit={this.handleSubmit}
             onChange={this.handleChange}>
             <input name="title" placeholder="Title" /><br />
             <textarea name="description"  placeholder="What do you think?" /><br />

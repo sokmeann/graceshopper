@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 //   // your code here
 // }
 
-class ProductContainer extends Component {
+class ProductContainer extends Component { // eslint-disable-line
   render() {
     return (
       <div id="product">

@@ -28,7 +28,7 @@ class QtyAddtoCart extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-  }  
+  }
 
   handleChange(event) {
     this.setState({
@@ -44,7 +44,7 @@ class QtyAddtoCart extends Component {
       this.state.quantity
     )
   }
-  
+
   render() {
     return (
       <div>

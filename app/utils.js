@@ -8,7 +8,7 @@ export const getCategories = (products) => {
   let categories = {}, categoriesArr = []
   products.forEach((product) => {
     let currentCategory = product.category
-    
+
     // Add each unique category to the array as an object
     if (!categories[currentCategory]) {
       categories[currentCategory] = {

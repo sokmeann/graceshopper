@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
 import DynamicNavbarContainer from '../containers/DynamicNavbarContainer'
 import MainLogo from '../components/Splash'
 import CategoriesContainer from '../containers/CategoriesContainer'
 // import Footer from '../components/Footer'
 
-class SplashContainer extends Component {
-  render() {
+class SplashContainer extends Component { // eslint-disable-line
+  render() { // eslint-disable-line
     return (
       <div id="splash">
         <DynamicNavbarContainer />
@@ -20,5 +19,3 @@ class SplashContainer extends Component {
 }
 
 export default SplashContainer
-
-//handleChange={this.handleChange} search={this.state.search}
