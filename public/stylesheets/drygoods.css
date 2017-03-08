@@ -11,6 +11,7 @@ html body {
   background-size: cover; }
 
 html, body {
+  font-family: 'Roboto', sans-serif;
   width: 100%;
   height: 100%; }
 
@@ -21,13 +22,13 @@ body {
 div .white {
   background-color: #FFFFFF; }
 
-html body {
-  height: 100%;
-}
-
 #mainlogo {
   height: 100vh;
   width: auto; }
+
+#maindiv {
+  margin-top: 100px;
+  margin-bottom: 100px; }
 
 #logoimg {
   width: 70%;
@@ -35,22 +36,6 @@ html body {
   margin-left: 15%;
   margin-right: 15%;
   margin-top: 12%; }
-
-.category {
-  height: 25%;
-  background-color: blue;
-}
-
-#searchbar {
-
-}
-/*html body {
-    background: url('../images/background.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}*/
 
 #product {
   padding: 30px;
@@ -82,26 +67,33 @@ html body {
   #product .fa {
     color: #ffe900; }
 
+.img-thumb {
+  max-width: 45%;
+  margin-bottom: 10%;
+  margin-right: 15%; }
+
+.img-main {
+  max-width: 100%;
+  margin-bottom: 10%; }
+
 form#registration {
   padding: 30px;
   font-family: 'Arial';
-  align-items: center; }
+  align-content: center; }
 
-#searchBar {
-  width: 85%;
-  border-color: none;
-  border-style: none;
-  border-radius: 10px;
-  margin-right: 15px;
-  padding: 3px; }
+#search {
+  width: 250px;
+  float: left;
+  padding: 7px;
+  margin-right: 15px; }
 
 #categories {
   font-family: 'Roboto', sans-serif; }
   #categories .productImage {
     max-width: 100%; }
 
-.productImage {
-  max-width: 100%; }
+.categoryImage {
+  max-width: 33%; }
 
 .qty {
   min-width: 50px; }
