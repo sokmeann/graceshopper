@@ -66,12 +66,16 @@ class Reviews extends Component {
         {
           this.props.user && this.props.user.status === 'REGISTERED' &&
           <form
+            className="form-group"
             onSubmit={this.handleSubmit}
             onChange={this.handleChange}>
-            <input name="title" placeholder="Title" /><br />
-            <textarea name="description"  placeholder="What do you think?" /><br />
-            <input name="rating" type="number" min="1" max="5" />
-            <button>Submit</button>
+            <input className="form-control" name="title" placeholder="Title" /><br />
+            <textarea className="form-control" name="description"  placeholder="What do you think?" /><br />
+            <p>Rating</p>
+            <input className="form-control qty" name="rating" type="number" min="1" max="5" />
+            <br />
+            <br />
+            <button className="btn btn-success">Submit Review</button>
           </form>
         }
         <h4>Reviews</h4>

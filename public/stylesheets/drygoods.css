@@ -51,18 +51,11 @@ div .white {
   #product #lastimg {
     margin-bottom: 0px; }
   #product #qtyselector {
-    width: 25px;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #fffcbf; }
+    width: 60px;
+    padding: 5px; }
   #product #addtocartbtn {
     padding: 5px;
-    margin-left: 5px;
-    border-radius: 5px;
-    border-color: none;
-    border: none;
-    background-color: #87efff; }
+    margin-left: 5px; }
   #product .fa {
     color: #ffe900; }
 
@@ -94,7 +87,8 @@ form#registration {
   max-width: 33%; }
 
 .qty {
-  min-width: 50px; }
+  width: 60px;
+  float: left; }
 
 .modal-overlay-div {
   position: fixed;

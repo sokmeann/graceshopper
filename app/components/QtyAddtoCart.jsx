@@ -20,8 +20,8 @@ const mapDispatchToProps = (dispatch) => {
 
 class QtyAddtoCart extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       quantity: 1
     }
@@ -50,13 +50,14 @@ class QtyAddtoCart extends Component {
       <div>
         <input
           id="qtyselector"
-          className="qty"
+          className="form-control qty"
           type="number"
           min="1"
           value={this.state.quantity}
           onChange={this.handleChange}
         />
         <button
+          className="btn btn-primary"
           id="addtocartbtn"
           onClick={this.handleSubmit}
         >

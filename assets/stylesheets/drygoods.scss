@@ -28,26 +28,7 @@ div .white {
   background-color: #FFFFFF;
 }
 
-// .navbar {
-//   .logo {
-//     font-size: 25px;
-//     font-weight: bold;
-//     padding-top: 25px;
-//   }
-//   .search {
-//     padding-top: 25px
-//   }
-//   .cart {
-//     font-size: 18px;
-//     font-weight: bold;
-//     padding-top: 25px
-//   }
-//   .login {
-//     font-size: 18px;
-//     font-weight: bold;
-//     padding-top: 25px
-//   }
-// }
+
 #mainlogo {
   height: 100vh;
   width: auto;
@@ -85,19 +66,13 @@ div .white {
     margin-bottom: 0px;
   }
   #qtyselector {
-    width: 25px;
+    width: 60px;
     padding: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #fffcbf;
+
   }
   #addtocartbtn {
     padding: 5px;
     margin-left: 5px;
-    border-radius: 5px;
-    border-color: none;
-    border: none;
-    background-color: #87efff;
   }
   .fa {
     color: #ffe900
@@ -143,7 +118,8 @@ form#registration {
 }
 
 .qty {
-  min-width: 50px
+  width: 60px;
+  float: left;
 }
 
 // Modals boilerplate CSS
