@@ -21,6 +21,10 @@ body {
 div .white {
   background-color: #FFFFFF; }
 
+html body {
+  height: 100%;
+}
+
 #mainlogo {
   height: 100vh;
   width: auto; }
@@ -31,6 +35,22 @@ div .white {
   margin-left: 15%;
   margin-right: 15%;
   margin-top: 12%; }
+
+.category {
+  height: 25%;
+  background-color: blue;
+}
+
+#searchbar {
+
+}
+/*html body {
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}*/
 
 #product {
   padding: 30px;
@@ -65,7 +85,7 @@ div .white {
 form#registration {
   padding: 30px;
   font-family: 'Arial';
-  align-content: center; }
+  align-items: center; }
 
 #searchBar {
   width: 85%;
@@ -80,8 +100,11 @@ form#registration {
   #categories .productImage {
     max-width: 100%; }
 
-.categoryImage {
-  max-width: 33%; }
+.productImage {
+  max-width: 100%; }
+
+.qty {
+  min-width: 50px; }
 
 .modal-overlay-div {
   position: fixed;

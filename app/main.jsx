@@ -11,6 +11,7 @@ import Login from './components/Login'
 // import WhoAmI from './components/WhoAmI'
 import Home from './containers/Home'
 import NavbarContainer from './containers/NavbarContainer'
+import ProductSearch from './components/ProductSearch'
 import UserPageContainer from './containers/UserPageContainer'
 import ProductsContainer from './containers/ProductsContainer'
 import ProductContainer from './containers/ProductContainer'
@@ -19,7 +20,9 @@ import UserRegistration from './containers/UserRegistration'
 import CategoriesGrid from './components/CategoriesGrid'
 import CategoriesContainer from './containers/CategoriesContainer'
 import CartContainer from './containers/CartContainer'
+
 import SplashContainer from './containers/SplashContainer'
+import CheckoutContainer from './containers/CheckoutContainer'
 
 import { currentUser } from './reducers/auth'
 import { fetchCart, newGuestCart } from './reducers/cart'
@@ -65,10 +68,14 @@ render(
         <Route path="/test" component={CategoriesGrid} />
         <Route path="/userRegistration" component={UserRegistration} />
         <Route path="/products/:productName" component={ProductContainer} onEnter={onProductEnter} />
+        <Route path="/search" component={ProductSearch} />
+        <Route path="/search/:term" component={ProductSearch} />
         <Route path="/category" component={CategoriesContainer} />
         <Route path="/category/:categoryName" component={ProductsContainer} onEnter={onCategoryEnter} />
         <Route path="/user" component={UserPageContainer} />
         <Route path="/cart" component={CartContainer} />
+        <Route path="/cart/checkout" component={CheckoutContainer} />
+
     </Route>
     </Router>
   </Provider>,
