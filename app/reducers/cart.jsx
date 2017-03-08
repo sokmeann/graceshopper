@@ -11,24 +11,27 @@ const initialCartState = {
   status: '',
   // user_id: null, //eslint-disable-line camelcase
   products: [],
+  total: 0
 
 }
 
 export default (state = initialCartState, action) => {
 
   const newState = Object.assign({}, state)
- 
+
   switch (action.type) {
     case RETRIEVE_CART:
       newState.products = action.products
       newState.status = action.status
       newState.orderId = action.orderId
+      newState.total = action.total
       break
     case EMPTY_CART:
       newState.receiveProducts = action.products
       break
-    case UPDATE_ITEMS: 
+    case UPDATE_ITEMS:
       newState.products = action.updatedProducts
+      newState.total = action.total
       break
     case REMOVE_ITEM:
       break
@@ -42,13 +45,27 @@ export default (state = initialCartState, action) => {
 
 }
 
+const productTotalCounterUtil = (prodArray) => {
+  let sum = 0
+
+  prodArray.forEach((element) => {
+    const elePrice = element.currentPrice * element.orderProduct.quantity
+    sum += elePrice
+  })
+
+  return sum
+}
+
 export const receiveOrder = order => {
-  console.log(order)
+
+  const sum = productTotalCounterUtil(order.products)
+
   return {
     type: RETRIEVE_CART,
     orderId: order.id,
     status: order.status,
-    products: order.products
+    products: order.products,
+    total: sum
   }
 }
 
@@ -73,9 +90,13 @@ export const newGuestCart = (userId) => {
 
 
 export const updateCartProducts = (updatedProducts) => {
+
+  const sum = productTotalCounterUtil(updatedProducts)
+
   return {
     type: UPDATE_ITEMS,
-    updatedProducts
+    updatedProducts,
+    total: sum
   }
 }
 
@@ -88,11 +109,11 @@ export const addToCart = (orderId, product, quantity) => {
       },
       quantity
   }
-  
+
   return (dispatch) => {
-    
+
     return axios.put(`/api/orders/${orderId}/products`, body)
-      .then(res => res.data)  
+      .then(res => res.data)
       .then(updatedProducts => { dispatch(updateCartProducts(updatedProducts)) })
       .catch(console.error)
   }
