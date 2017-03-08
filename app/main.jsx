@@ -20,6 +20,8 @@ import UserRegistration from './containers/UserRegistration'
 import CategoriesGrid from './components/CategoriesGrid'
 import CategoriesContainer from './containers/CategoriesContainer'
 import CartContainer from './containers/CartContainer'
+
+import SplashContainer from './containers/SplashContainer'
 import CheckoutContainer from './containers/CheckoutContainer'
 
 import { currentUser } from './reducers/auth'
@@ -60,7 +62,8 @@ const onProductEnter = (nextRouterState) => {
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={Home} onEnter={onHomeEnter}>
+      <Route path="/" component={SplashContainer} onEnter={onHomeEnter} />
+      <Route path="/home" component={Home} onEnter={onHomeEnter}>
         <IndexRedirect to="/category" />
         <Route path="/test" component={CategoriesGrid} />
         <Route path="/userRegistration" component={UserRegistration} />

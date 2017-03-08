@@ -16,8 +16,8 @@ const CategoriesGrid = (props) => {
           return (
             <div className="category col-lg-4 col-xs-12" key={category.name}>
               <Link to={`/category/${category.name}`}>
-                <h5>{ category.name }</h5>  
-                <img className='productImage' src={category.image} />
+                <h4>{ category.name }</h4>
+                <img className="productImage" src={category.image} />
               </Link>
             </div>
           )
