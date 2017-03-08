@@ -39,7 +39,7 @@ const ProductsList = (props) => {
                                 </div>
                               </div></td>
                               <td className="col-sm-1 col-md-1" style={{textAlign: 'center'}}>
-                                <input type="number" min="1" className="form-control" value={`${product.orderProduct.quantity}`} />
+                                <input type="number" min="1" className="form-control" defaultValue={`${product.orderProduct.quantity}`} />
                               </td>
                               <td className="col-sm-1 col-md-1 text-center"><strong>${`${product.currentPrice}`}</strong></td>
                               <td className="col-sm-1 col-md-1 text-center"><strong>${`${product.currentPrice}`}</strong></td>
