@@ -63,12 +63,13 @@ div .white {
     color: #ffe900; }
 
 .img-thumb {
-  width: 45%;
+  max-width: 45%;
   margin-bottom: 10%;
   margin-right: 15%; }
 
 .img-main {
-  width: 100%; }
+  max-width: 100%;
+  margin-bottom: 10%; }
 
 form#registration {
   padding: 30px;
