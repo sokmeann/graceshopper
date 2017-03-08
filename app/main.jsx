@@ -3,14 +3,10 @@ import React from 'react'
 import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
 import {render} from 'react-dom'
 import {Provider} from 'react-redux'
-import axios from 'axios'
 
 import store from './store'
-import Jokes from './components/Jokes'
-import Login from './components/Login'
-// import WhoAmI from './components/WhoAmI'
 import Home from './containers/Home'
-import NavbarContainer from './containers/NavbarContainer'
+import Login from './components/Login'
 import ProductSearch from './components/ProductSearch'
 import UserPageContainer from './containers/UserPageContainer'
 import ProductsContainer from './containers/ProductsContainer'
@@ -65,7 +61,7 @@ render(
       <Route path="/" component={SplashContainer} onEnter={onHomeEnter} />
       <Route path="/home" component={Home} onEnter={onHomeEnter}>
         <IndexRedirect to="/category" />
-        <Route path="/test" component={CategoriesGrid} />
+        <Route path="/login" component={Login} />
         <Route path="/userRegistration" component={UserRegistration} />
         <Route path="/products/:productName" component={ProductContainer} onEnter={onProductEnter} />
         <Route path="/search" component={ProductSearch} />

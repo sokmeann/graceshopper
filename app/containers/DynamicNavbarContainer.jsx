@@ -7,8 +7,6 @@ import Login from '../components/LoginNav'
 import LoggedIn from '../components/LoggedIn'
 import Logout from '../components/Logout'
 
-// import { selectProducts } from '../reducers/products'
-
 // get products from state to match with input in search
 const mapStateToProps = (state) => {
   return {
@@ -21,15 +19,32 @@ class Navbar extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      products: props.products
+      products: props.products,
+      isHide: true
     }
+    this.hideBar = this.hideBar.bind(this)
+  }
+
+  hideBar(){
+     let {isHide} = this.state
+
+     window.scrollY > 300 ? !isHide && this.setState({isHide: true}) : isHide && this.setState({isHide: false}) //eslint-disable-line
+
+     this.prev = window.scrollY
+  }
+  componentDidMount(){
+      window.addEventListener('scroll', this.hideBar)
+  }
+  componentWillUnmount(){
+       window.removeEventListener('scroll', this.hideBar)
   }
 
   render() {
     const user = this.props.user
+    let classHide = this.state.isHide ? '' : 'hide'
 
     return (
-      <nav className="navbar navbar-default navbar-fixed-top">
+      <nav className={'navbar navbar-default navbar-fixed-top ' + classHide}>
         <div className="container-fluid">
           {/*<!-- Brand and toggle get grouped for better mobile display -->*/}
           <div className="navbar-header">
@@ -69,10 +84,10 @@ class Navbar extends Component {
               }
             </li>
             <li>
-                {
-                  user && user.status !== 'GUEST' && user !== null ? <Logout /> : ''
-                }
-              </li>
+              {
+                user && user.status !== 'GUEST' && user !== null ? <Logout /> : ''
+              }
+            </li>
             </ul>
           </div>
         </div>
