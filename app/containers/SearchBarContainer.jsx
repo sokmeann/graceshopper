@@ -30,7 +30,6 @@ class SearchBar extends Component {
   handleChange(event){
 
     let searchedProducts = this.props.products
-    console.log("SEARCHED PRODUCTS", searchedProducts)
     if(this.props.products && event.target.value !== '') {
       searchedProducts = this.props.products.filter(product => product.title.toLowerCase().match(event.target.value.toLowerCase()))
     }

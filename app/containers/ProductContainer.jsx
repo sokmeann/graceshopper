@@ -5,7 +5,6 @@ import QtyAddtoCart from '../components/QtyAddtoCart'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => {
-  console.log('state', state)
   return {
     selectedProduct: state.product.selectedProduct
   }
@@ -16,14 +15,12 @@ const mapStateToProps = (state) => {
 // }
 
 class ProductContainer extends Component {
-
   render() {
-    console.log("RENDERING PRODUCT")
     return (
       <div id="product">
         <Product selectedProduct={ this.props.selectedProduct } />
         <QtyAddtoCart />
-        <Reviews />
+        <Reviews prodId={this.props.selectedProduct.id} />
       </div>
     )
   }
