@@ -28,9 +28,9 @@ class Navbar extends Component {
   hideBar(){
      let {isHide} = this.state
 
-     window.scrollY > 300 ? !isHide && this.setState({isHide: true}) : isHide && this.setState({isHide: false}) //eslint-disable-line
+     window.scrollY > 550 ? !isHide && this.setState({isHide: true}) : isHide && this.setState({isHide: false}) //eslint-disable-line
 
-     this.prev = window.scrollY
+    //  this.prev = window.scrollY
   }
   componentDidMount(){
       window.addEventListener('scroll', this.hideBar)

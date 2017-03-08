@@ -21,21 +21,31 @@ body {
 
 div .white {
   background-color: #FFFFFF; }
+#cat {
 
+}
 #mainlogo {
   height: 100vh;
-  width: auto; }
+  width: auto;
+  background-attachment: fixed; }
 
 #maindiv {
   margin-top: 100px;
-  margin-bottom: 100px; }
+  margin-bottom: 100px;
+  background-attachment: fixed; }
+  padding-bottom: 150px; }
+
+#splashmain {
+  margin-top: 100px;
+  padding-bottom: 150px; }
 
 #logoimg {
   width: 70%;
   height: auto;
   margin-left: 15%;
   margin-right: 15%;
-  margin-top: 12%; }
+  margin-top: 12%;
+  background-attachment: fixed; }
 
 #product {
   padding: 30px; }
@@ -83,7 +93,9 @@ form#registration {
   font-family: 'Roboto', sans-serif; }
   #categories .productImage {
     max-width: 100%;
-    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3)}
+    margin-bottom: 8%;
+    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3); }
+    
 
 .categoryImage {
   max-width: 33%; }
