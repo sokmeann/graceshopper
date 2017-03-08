@@ -1,16 +1,18 @@
 import React, {Component} from 'react'
-import {findReviewsByProduct} from '../reducers/product'
+import {findReviewsByProduct, createReview} from '../reducers/product'
 import {connect} from 'react-redux'
 
 const mapStateToProps = (state) => {
   return {
-    reviews: state.product.reviews
+    reviews: state.product.reviews,
+    user: state.auth.user
   }
 
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    findReviewsByProduct: (productId) => dispatch(findReviewsByProduct(productId))
+    findReviewsByProduct: (productId) => dispatch(findReviewsByProduct(productId)),
+    createReview: (prodId, userId, review) => dispatch(createReview(prodId, userId, review))
   }
 }
 
@@ -18,22 +20,59 @@ class Reviews extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      reviewsReceived: false
+      reviewsReceived: false,
+      title: '',
+      description: '',
+      rating: null
     }
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!this.state.reviewsReceived) {
+    if (!this.state.reviewsReceived && nextProps.prodId) {
       this.props.findReviewsByProduct(nextProps.prodId)
+      this.setState({reviewsReceived: true})
+    }
+  }
+
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    const review = {
+      title: this.state.title,
+      description: this.state.description,
+      rating: this.state.rating
     }
 
-    this.setState({reviewsReceived: true})
+    this.props.createReview(this.props.prodId, this.props.user.id, review)
+    this.setState({
+      title: '',
+      description: '',
+      rating: null
+    })
   }
 
   render() {
-    console.log('REviews: ', this.props.prodId);
     return (
       <div>
+        <h4>Post a Review</h4>
+        {
+          this.props.user && this.props.user.status === 'REGISTERED' &&
+          <form onSubmit={this.handleSubmit}
+            onChange={this.handleChange}>
+            <input name="title" placeholder="Title" /><br />
+            <textarea name="description"  placeholder="What do you think?" /><br />
+            <input name="rating" type="number" min="1" max="5" />
+            <button>Submit</button>
+          </form>
+        }
         <h4>Reviews</h4>
           <div>
             {

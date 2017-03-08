@@ -41,6 +41,7 @@ class SearchBar extends Component {
   }
 
 render() {
+
   return (
       <div id="search" className="input-group">
         <div className="input-group-addon"><i className="fa fa-search" /></div>
