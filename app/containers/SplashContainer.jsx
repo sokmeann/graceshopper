@@ -11,7 +11,7 @@ class SplashContainer extends Component {
       <div id="splash">
         <DynamicNavbarContainer />
         <MainLogo />
-        <div className="maindiv white col-lg-10 col-lg-offset-1">
+        <div id="cat" className="maindiv white col-lg-10 col-lg-offset-1">
           <CategoriesContainer />
         </div>
       </div>

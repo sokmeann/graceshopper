@@ -21,21 +21,26 @@ body {
 
 div .white {
   background-color: #FFFFFF; }
+#cat {
 
+}
 #mainlogo {
   height: 100vh;
-  width: auto; }
+  width: auto;
+  background-attachment: fixed; }
 
 #maindiv {
   margin-top: 100px;
-  margin-bottom: 100px; }
+  margin-bottom: 100px;
+  background-attachment: fixed; }
 
 #logoimg {
   width: 70%;
   height: auto;
   margin-left: 15%;
   margin-right: 15%;
-  margin-top: 12%; }
+  margin-top: 12%;
+  background-attachment: fixed; }
 
 #product {
   padding: 30px;
@@ -90,7 +95,7 @@ form#registration {
 #categories {
   font-family: 'Roboto', sans-serif; }
   #categories .productImage {
-    max-width: 100%; }
+    max-width: 100%; margin-bottom: 8%}
 
 .categoryImage {
   max-width: 33%; }
