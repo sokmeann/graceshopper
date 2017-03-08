@@ -1,10 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 .navbar {
   margin-bottom: 0px;
+}
+
+html body {
+  background-color: white;
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
 }
 
 body {
   display: block;
   margin: 0;
+}
+
+div .white {
+  background-color: #FFFFFF;
 }
 
 // .navbar {
@@ -27,6 +47,18 @@ body {
 //     padding-top: 25px
 //   }
 // }
+#mainlogo {
+  height: 100vh;
+  width: auto;
+}
+
+#logoimg {
+  width: 70%;
+  height: auto;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 12%
+}
 
 #product {
   padding: 30px;
@@ -82,17 +114,21 @@ form#registration {
   padding: 3px;
 }
 
-#footer {
-}
+#categories{
+  font-family: 'Roboto', sans-serif;
+  h4 {
 
-// PRODUCT IMAGE
-.productImage {
-  max-width: 33%
+  }
+  // PRODUCT IMAGE
+  .productImage {
+    max-width: 100%
+  }
 }
 
 .categoryImage {
   max-width: 33%
 }
+
 // Modals boilerplate CSS
 .modal-overlay-div {
     position: fixed;
